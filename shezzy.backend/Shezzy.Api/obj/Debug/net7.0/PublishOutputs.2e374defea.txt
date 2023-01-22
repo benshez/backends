@@ -1,0 +1,12 @@
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\shezzy.api.exe
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\appsettings.json
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\shezzy.api.dll
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\shezzy.api.deps.json
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\shezzy.api.runtimeconfig.json
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\shezzy.api.pdb
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\Microsoft.OpenApi.dll
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\benvh01\Projects\back-ends\shezzy.backend\shezzy.api\bin\Debug\net7.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll

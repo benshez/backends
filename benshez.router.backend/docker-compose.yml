@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  docker-benshez-router-backend:
+    build: .
+    container_name: docker-benshez-router-backend
+    image: docker-benshez-router-backend
+    networks:
+      - benshez_router_backend   
+    ports:
+      - "4026:4026"
+
+networks:
+  benshez_router_backend:
+    name: benshez_router_backend
+    driver: bridge    
