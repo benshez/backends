@@ -45,6 +45,30 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Auth0.AuthenticationApi": {
+              "target": "Package",
+              "version": "[7.18.0, )"
+            },
+            "Auth0.Core": {
+              "target": "Package",
+              "version": "[7.18.0, )"
+            },
+            "Auth0.ManagementApi": {
+              "target": "Package",
+              "version": "[7.18.0, )"
+            },
+            "Auth0.OidcClient.Core": {
+              "target": "Package",
+              "version": "[3.2.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
             "Microsoft.AspNetCore.Mvc.Versioning": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -53,9 +77,13 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.17.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  docker-shezzy-backend:
+    image: docker-shezzy-backend
+    container_name: docker-shezzy-backend
+    build:
+      context: .
+      dockerfile: Shezzy.Api/Dockerfile
+    networks:
+      - docker_shezzy_backend  
+
+networks:
+  docker_shezzy_backend:
+    name: docker_shezzy_backend
+    driver: bridge   

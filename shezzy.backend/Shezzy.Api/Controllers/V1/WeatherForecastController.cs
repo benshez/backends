@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace Shezzy.Api.Controllers.V1;
 
@@ -13,7 +16,6 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
-
     public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
         _logger = logger;
@@ -21,9 +23,11 @@ public class WeatherForecastController : ControllerBase
 
     [HttpGet("GetWeatherForecast")]
     [Produces("application/json")]
-    public IEnumerable<WeatherForecast> Get()
+    [Authorize(Policy = "Admin")]
+    public async Task<IEnumerable<WeatherForecast>> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        //await HttpContext.ChallengeAsync("Auth0", new AuthenticationProperties() { RedirectUri = "http://localhost:4025" });
+        return  Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
             TemperatureC = Random.Shared.Next(-20, 55),
