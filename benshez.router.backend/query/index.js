@@ -62,6 +62,7 @@ class NetgearQuery {
     this.router = new NetgearRouter();
     this.t0 = Date.now();
     this.clearDataObjects();
+    this.setupSession();
   }
 
   async clearDataObjects() {
@@ -119,8 +120,6 @@ class NetgearQuery {
 
   async setupSession() {
     try {
-      await this.clearDataObjects();
-
       this.session.nodeVersion = process.version;
       this.session.netgearPackageVersion = version;
       this.session.os = `${os.platform()} ${os.release()}`;
@@ -141,9 +140,9 @@ class NetgearQuery {
         this.router[opt] = this.options[opt];
       });
 
-      this.session.timeTaken = await this.getTime();
+      this.session.timeTaken = this.getTime();
     } catch (error) {
-      return await this.setError(error);
+      return this.setError(error);
     }
   }
 
@@ -152,7 +151,7 @@ class NetgearQuery {
     await this.router.login();
     try {
       const speed = await this.router.speedTest();
-      this.routerSpeed.timeTaken = await this.getTime();
+      this.routerSpeed.timeTaken = this.getTime();
 
       return Object.assign(this.routerSpeed, speed);
     } catch (error) {
@@ -163,29 +162,10 @@ class NetgearQuery {
   discover = async () => {
     try {
       return Promise.resolve(this.router.discover());
-    }	catch (error) {
+    } catch (error) {
       return Promise.reject(error);
     }
-  }
-
-  async logError(error) {
-    errorCount += 1;
-    this.error.hasError = true;
-    this.error.count = errorCount;
-    if (
-      error.message ===
-      "404 Not Found. The requested function/page is not available"
-    ) {
-      return {};
-    }
-    this.error.message = error.message;
-    this.error.lastResponse = this.router.lastResponse;
-
-    if (!this.router.loggedIn) {
-      await this.router.login();
-    }
-    return {};
-  }
+  };
 
   async getDevicesAttached() {
     try {
@@ -193,26 +173,42 @@ class NetgearQuery {
 
       this.clearAttachedDevicesObject();
 
-      if (!this.router.loggedIn) {
-        await this.setupSession();
-        await this.router.login();
-      }
+      await this.router.login();
 
-      const attachedDevices = await this.router._getAttachedDevices();
+      let attachedDevices = await this.router._getAttachedDevices();
 
       const attachedDevices2 = await this.router
         ._getAttachedDevices2()
         .catch((error) => this.logError(error));
 
-      this.attachedDevices.devices.list = Object.assign(
-        attachedDevices,
-        attachedDevices2
-      );
-      this.attachedDevices.devices.count =
-        this.attachedDevices.devices.list.count;
-      this.attachedDevices.devices.timeTaken = await this.getTime();
+      const devices = (parent, child) => {
+        const combined = parent;
+        let added = false;
 
-      return Object.assign(this.session, this.attachedDevices);
+        for (let j = 0; j < child.length; j++) {
+          added = combined.findIndex((el) => {
+            return el.MAC === child[j].MAC;
+          });
+
+          if (added === -1) {
+            combined.push(child[j]);
+          }
+        }
+      
+
+        return combined;
+      };
+
+      this.attachedDevices.devices.list = devices(
+        attachedDevices2,
+        attachedDevices
+      );
+
+      this.attachedDevices.devices.count =
+        this.attachedDevices.devices.list.length;
+      this.attachedDevices.devices.timeTaken = this.getTime();
+
+      return this.attachedDevices;
     } catch (error) {
       return await this.setError(error);
     }
@@ -235,7 +231,26 @@ class NetgearQuery {
     }
   }
 
-  async getTime() {
+  async logError(error) {
+    errorCount += 1;
+    this.error.hasError = true;
+    this.error.count = errorCount;
+    if (
+      error.message ===
+      "404 Not Found. The requested function/page is not available"
+    ) {
+      return {};
+    }
+    this.error.message = error.message;
+    this.error.lastResponse = this.router.lastResponse;
+
+    if (!this.router.loggedIn) {
+      await this.router.login();
+    }
+    return {};
+  }
+
+  getTime() {
     let timeTaken = (Date.now() - this.t0) / 1000;
 
     return timeTaken;
@@ -265,7 +280,7 @@ class NetgearQuery {
     try {
       this.t0 = Date.now();
       this.routerInfo.info = await this.router.getCurrentSetting();
-      this.routerInfo.timeTaken = await this.getTime();
+      this.routerInfo.timeTaken = this.getTime();
       return this.routerInfo;
     } catch (error) {
       return await this.setError(error);
@@ -276,7 +291,7 @@ class NetgearQuery {
     try {
       this.t0 = Date.now();
       this.routerInfo.info = await this.router._discoverAllHostsInfo();
-      this.routerInfo.timeTaken = await this.getTime();
+      this.routerInfo.timeTaken = this.getTime();
       return this.routerInfo;
     } catch (error) {
       return await this.setError(error);
@@ -290,7 +305,7 @@ class NetgearQuery {
       info.SerialNumber = "**********";
 
       this.routerInfo.info = info;
-      this.routerInfo.timeTaken = await this.getTime();
+      this.routerInfo.timeTaken = this.getTime();
       return this.routerInfo;
     } catch (error) {
       return await this.setError(error);
@@ -308,6 +323,8 @@ class NetgearQuery {
     try {
       this.t0 = Date.now();
 
+      await this.router.login();
+
       await this.router
         .login({ method: 1 })
         .then(() => (this.autologinInfo.methodeOneSuccess = true))
@@ -321,7 +338,7 @@ class NetgearQuery {
       await this.router.login();
 
       this.autologinInfo.method = this.router.loginMethod;
-      this.autologinInfo.timeTaken = await this.getTime();
+      this.autologinInfo.timeTaken = this.getTime();
 
       return this.autologinInfo;
     } catch (error) {
