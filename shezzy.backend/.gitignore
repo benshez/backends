@@ -7,8 +7,12 @@
 /build
 .output
 .vs
-/obj
-/bin
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
 
 # misc
 .DS_Store
