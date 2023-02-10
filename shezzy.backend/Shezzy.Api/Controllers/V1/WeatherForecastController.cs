@@ -24,7 +24,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("GetWeatherForecast")]
     [Produces("application/json")]
     [Authorize(Policy = "Admin")]
-    public async Task<IEnumerable<WeatherForecast>> Get()
+    public IEnumerable<WeatherForecast> Get()
     {
         //await HttpContext.ChallengeAsync("Auth0", new AuthenticationProperties() { RedirectUri = "http://localhost:4025" });
         return  Enumerable.Range(1, 5).Select(index => new WeatherForecast

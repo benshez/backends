@@ -6,7 +6,7 @@ namespace Shezzy.Api.Authentication
 {
     public class Auth0Options : OpenIdConnectOptions
     {
-        public string Domain { get; set; }
+        public string ?Domain { get; set; }
         public Auth0Options()
         {
             ResponseType = OpenIdConnectResponseType.Code;

@@ -22,16 +22,19 @@ var origins = builder.Configuration
 
 builder.Configuration.AddEnvironmentVariables();
 // Add services to the container.
-builder.Services.AddCors(options =>
+if (origins != null)
 {
-    options.AddPolicy(name: DefaultCorsPolicyName,
-        policy =>
-        {
-            policy
-            .WithOrigins(origins)
-            .WithHeaders("Authorization");
-        });
-});
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy(name: DefaultCorsPolicyName,
+            policy =>
+            {
+                policy
+                .WithOrigins(origins)
+                .WithHeaders("Authorization");
+            });
+    });
+}
 
 var dom = builder.Configuration["Auth0:Domain"];
 
