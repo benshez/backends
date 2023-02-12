@@ -46,7 +46,7 @@ namespace Shezzy.Api.Authentication
                             if (postLogoutUri.StartsWith("/"))
                             {
                                 var request = context.Request;
-                                postLogoutUri = request.Scheme + "://" + request.Host + request.PathBase + postLogoutUri;
+                                postLogoutUri = $"{request.Scheme}://{request.Host}{request.PathBase}{postLogoutUri}";
                             }
                             logoutUri += $"&returnTo={Uri.EscapeDataString(postLogoutUri)}";
                         }
