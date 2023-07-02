@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<p><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></p>
+<p><a asp-area="" asp-controller="Home" asp-action="LoginAuth0">Login Auth0</a></p>
+<ul>
+    @if (Context.User.Identity.IsAuthenticated)
+    {
+        <li>
+            <a>Hello @User.Identity.Name</a>
+        </li>
+        <li>
+            <a asp-controller="Home" asp-action="Logout">Logout</a>
+        </li>
+    }
+</ul>
+@if (Context.User.Identity.IsAuthenticated) {
+<script type="text/javascript">
+        window.initialData = @Html.Raw(Json.Serialize(ViewData["data"]));
+</script>
+}
