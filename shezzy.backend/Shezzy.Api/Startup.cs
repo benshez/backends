@@ -26,9 +26,7 @@ namespace Shezzy.Api
 					options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 				})
 				.AddCookie()
-				.RegisterOAuthAuthenticationBuilder(Configuration);
-				//.RegisterMicrosoftAuthenticationBuilder(Configuration)
-				//.RegisterOpenIdConnectAuthenticationBuilder(Configuration, "Auth0");
+				.RegisterAuthenticationBuilder(Configuration);
 
 			services
 				.AddSwaggerGen()
