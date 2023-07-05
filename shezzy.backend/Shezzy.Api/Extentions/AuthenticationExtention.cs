@@ -43,14 +43,14 @@ namespace Shezzy.Api.Extentions
 				{
 					builder.AddGoogle(GoogleDefaults.AuthenticationScheme, _ =>
 					{
-						new AuthenticationActions(clientId, clientSecret, authority, section.Key).Run(_);
+						new AuthenticationActionBase(clientId, clientSecret, authority, section.Key).Run(_);
 					});
 				}
 				if (section.Key == "Microsoft")
 				{
 					builder.AddMicrosoftAccount(_ =>
 					{
-						new AuthenticationActions(clientId, clientSecret, authority, section.Key).Run(_);
+						new AuthenticationActionBase(clientId, clientSecret, authority, section.Key).Run(_);
 					});
 				}
 			}
@@ -72,7 +72,7 @@ namespace Shezzy.Api.Extentions
 
 					builder.AddOpenIdConnect(_ =>
 					{
-						new AuthenticationActions(clientId, clientSecret, authority, section.Key).Run(_);
+						new AuthenticationActionBase(clientId, clientSecret, authority, section.Key).Run(_);
 					});
 				}
 			}

@@ -49,9 +49,9 @@ namespace Shezzy.Api.Extentions
 		}
 	}
 
-	public class IssuerFixupAction : ClaimAction
+	public class IssuerFixupActionBase : ClaimAction
 	{
-		public IssuerFixupAction() : base(ClaimTypes.NameIdentifier, string.Empty) { }
+		public IssuerFixupActionBase() : base(ClaimTypes.NameIdentifier, string.Empty) { }
 
 		public override void Run(JsonElement userData, ClaimsIdentity? identity, string issuer)
 		{
@@ -63,9 +63,9 @@ namespace Shezzy.Api.Extentions
 		}
 	}
 
-	public class AuthenticationActions : AuthenticationAction
+	public class AuthenticationActionBase : AuthenticationAction
 	{
-		public AuthenticationActions(
+		public AuthenticationActionBase(
 			string clientId,
 			string clientSecret,
 			string authority,
@@ -75,8 +75,7 @@ namespace Shezzy.Api.Extentions
 				authority, 
 				issuer) { }
 
-		public override void Run(
-			OAuthOptions _)
+		public override void Run(OAuthOptions _)
 		{
 			_.ClientId = ClientId;
 			_.ClientSecret = ClientSecret;
@@ -93,7 +92,7 @@ namespace Shezzy.Api.Extentions
 							string? authenticationType = identity.AuthenticationType;
 							if (!string.IsNullOrEmpty(authenticationType))
 							{
-								new IssuerFixupAction().Run(new JsonElement(), identity, authenticationType.ToString());
+								new IssuerFixupActionBase().Run(new JsonElement(), identity, authenticationType.ToString());
 							}
 						}
 					}
@@ -113,8 +112,7 @@ namespace Shezzy.Api.Extentions
 			}
 		}
 
-		public override void Run(
-			OpenIdConnectOptions _)
+		public override void Run(OpenIdConnectOptions _)
 		{
 			_.ClientId = ClientId;
 			_.ClientSecret = ClientSecret;
@@ -133,7 +131,7 @@ namespace Shezzy.Api.Extentions
 					if (context != null && context.Principal != null)
 					{
 						ClaimsIdentity? identity = context.Principal.Identity as ClaimsIdentity;
-						new IssuerFixupAction().Run(new JsonElement(), identity, Issuer);
+						new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
 					}
 
 					return Task.FromResult(0);
