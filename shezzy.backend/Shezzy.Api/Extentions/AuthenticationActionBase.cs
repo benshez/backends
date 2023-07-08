@@ -25,6 +25,7 @@ namespace Shezzy.Api.Extentions
 			_.ClientId = ClientId;
 			_.ClientSecret = ClientSecret;
 			_.SaveTokens = true;
+			_.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
 			_.Events = new OAuthEvents()
 			{
 				OnRemoteFailure = new AuthenticationBase().HandleOnRemoteFailure,
@@ -62,6 +63,7 @@ namespace Shezzy.Api.Extentions
 			_.Scope.Add("email");
 			_.Scope.Add("offline_access");
 			_.GetClaimsFromUserInfoEndpoint = true;
+			_.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
 			_.Events = new OpenIdConnectEvents()
 			{
 				OnRemoteFailure = new AuthenticationBase().HandleOnRemoteFailure,
@@ -76,6 +78,7 @@ namespace Shezzy.Api.Extentions
 					return Task.FromResult(0);
 				}
 			};
+
 			_.ClaimsIssuer = Issuer;
 		}
 	}

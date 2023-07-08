@@ -4,9 +4,9 @@ services:
   docker-shezzy-backend:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:4025
+      - ASPNETCORE_URLS=https://+:4026
     ports:
-      - "4025:4025"
+      - "4026:4026"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
