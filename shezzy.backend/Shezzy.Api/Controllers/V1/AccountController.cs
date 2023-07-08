@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace Shezzy.Api.Controllers.V1
 {
-    public class AccountController : Controller
+	[ApiVersion("1.0")]
+	public class AccountController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()

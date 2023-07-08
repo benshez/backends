@@ -76,12 +76,13 @@ namespace Shezzy.Api
 
 			if (origins != null)
 			{
-				options.AddPolicy(DefaultCorsPolicyName, p => p
-				.SetIsOriginAllowedToAllowWildcardSubdomains()
-				.WithOrigins(origins)
-				.WithHeaders("Authorization")
-				.AllowAnyMethod()
-				.AllowAnyHeader());
+				options
+					.AddPolicy(DefaultCorsPolicyName, p => p
+					.SetIsOriginAllowedToAllowWildcardSubdomains()
+					.WithOrigins(origins)
+					.WithHeaders("Authorization")
+					.AllowAnyMethod()
+					.AllowAnyHeader());
 			}
 		}
 	}

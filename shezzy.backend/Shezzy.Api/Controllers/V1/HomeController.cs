@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Serilog;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Shezzy.Api.Controllers.V1
 {
@@ -16,8 +15,8 @@ namespace Shezzy.Api.Controllers.V1
 		public HomeController()
 		{
 
-			var logger = Log.ForContext<HomeController>();
-			logger.Information("HomeController Found");
+			//var logger = Log.ForContext<HomeController>();
+			//logger.Information("HomeController Found");
 
 		}
 		public IActionResult Index()
