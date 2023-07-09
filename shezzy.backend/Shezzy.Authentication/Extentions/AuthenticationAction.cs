@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
-namespace Shezzy.Api.Extentions
+namespace Shezzy.Authentication.Extentions
 {
 	public abstract class AuthenticationAction
 	{

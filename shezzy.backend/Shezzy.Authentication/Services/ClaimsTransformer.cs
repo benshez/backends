@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Security.Claims;
 
-namespace Shezzy.Api.Services
+namespace Shezzy.Authentication.Services
 {
 	public class ClaimsTransformer : IClaimsTransformation
 	{

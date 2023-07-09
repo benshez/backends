@@ -1,4 +1,4 @@
-﻿namespace Shezzy.Api.Models
+﻿namespace Shezzy.Authentication.Models
 {
     public class ApiResponse
     {

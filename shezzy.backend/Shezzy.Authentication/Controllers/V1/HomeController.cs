@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Shezzy.Api.Models;
+using Shezzy.Authentication.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Serilog;
 
-namespace Shezzy.Api.Controllers.V1
+namespace Shezzy.Authentication.Controllers.V1
 {
 	public class HomeController : Controller
 	{

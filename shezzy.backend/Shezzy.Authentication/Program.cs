@@ -1,4 +1,4 @@
-﻿using Shezzy.Api;
+﻿using Shezzy.Authentication;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Cors.Infrastructure;
-using Shezzy.Api.Extentions;
+using Shezzy.Authentication.Extentions;
 
-namespace Shezzy.Api
+namespace Shezzy.Authentication
 {
 	public class Startup
 	{

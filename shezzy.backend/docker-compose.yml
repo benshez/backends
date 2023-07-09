@@ -3,7 +3,7 @@ services:
   docker-shezzy-backend:
     build:
       context: .
-      dockerfile: Shezzy.Api/Dockerfile
+      dockerfile: Shezzy.Authentication/Dockerfile
     container_name: docker-shezzy-backend     
     image: docker-shezzy-backend     
     networks:

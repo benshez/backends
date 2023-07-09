@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using System.Security.Claims;
 using System.Text.Json;
 
-namespace Shezzy.Api.Extentions
+namespace Shezzy.Authentication.Extentions
 {
 	public class AuthenticationActionBase : AuthenticationAction
 	{

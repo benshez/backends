@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
 
-namespace Shezzy.Api.Extentions
+namespace Shezzy.Authentication.Extentions
 {
 	public static class AuthenticationExtention
 	{
