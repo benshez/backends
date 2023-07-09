@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
+using Shezzy.Authentication.Actions;
 
 namespace Shezzy.Authentication.Extentions
 {

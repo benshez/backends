@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Text.Json;
 
-namespace Shezzy.Authentication.Extentions
+namespace Shezzy.Authentication.Actions
 {
 	public class IssuerFixupActionBase : ClaimAction
 	{

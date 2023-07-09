@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Authentication.MicrosoftAccount;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Shezzy.Authentication.Extentions;
 using System.Security.Claims;
 using System.Text.Json;
 
-namespace Shezzy.Authentication.Extentions
+namespace Shezzy.Authentication.Actions
 {
 	public class AuthenticationActionBase : AuthenticationAction
 	{

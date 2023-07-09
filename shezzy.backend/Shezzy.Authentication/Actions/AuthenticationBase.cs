@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using System.Text.Encodings.Web;
 
-namespace Shezzy.Authentication.Extentions
+namespace Shezzy.Authentication.Actions
 {
 	public class AuthenticationBase
 	{
