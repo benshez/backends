@@ -93,6 +93,8 @@ namespace Shezzy.Authentication.Controllers.V1
 		{
 			var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
+			var user = Services.UserService.FromAuthenticateResult(result);
+
 			var claims = result.Principal?.Identities?
 				.FirstOrDefault()?.Claims.Select(claim => new
 				{
