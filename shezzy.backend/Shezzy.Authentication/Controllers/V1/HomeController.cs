@@ -7,14 +7,17 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Serilog;
+using Shezzy.Authentication.User;
+using AutoMapper;
 
 namespace Shezzy.Authentication.Controllers.V1
 {
 	public class HomeController : Controller
 	{
-		public HomeController()
+		private readonly IMapper _mapper;
+		public HomeController(IMapper mapper)
 		{
-
+			_mapper = mapper;
 			//var logger = Log.ForContext<HomeController>();
 			//logger.Information("HomeController Found");
 
@@ -93,7 +96,7 @@ namespace Shezzy.Authentication.Controllers.V1
 		{
 			var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-			var user = Services.UserService.FromAuthenticateResult(result);
+			var user = UserTransformer.TransformUser(result);
 
 			var claims = result.Principal?.Identities?
 				.FirstOrDefault()?.Claims.Select(claim => new
@@ -103,7 +106,7 @@ namespace Shezzy.Authentication.Controllers.V1
 					claim.Type,
 					claim.Value
 				});
-			ViewData["data"] = Json(claims);
+			ViewData["data"] = (user);
 			return Json(claims);
 		}
 		[Authorize]

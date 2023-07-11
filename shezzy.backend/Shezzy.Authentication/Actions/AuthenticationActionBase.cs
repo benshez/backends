@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Authentication.Google;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.MicrosoftAccount;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Shezzy.Authentication.Extentions;
 using System.Security.Claims;
 using System.Text.Json;
 
@@ -25,6 +25,7 @@ namespace Shezzy.Authentication.Actions
 		{
 			_.ClientId = ClientId;
 			_.ClientSecret = ClientSecret;
+			_.ClaimActions.MapJsonKey("image", "picture");
 			_.SaveTokens = true;
 			_.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
 			_.Events = new OAuthEvents()
@@ -58,6 +59,7 @@ namespace Shezzy.Authentication.Actions
 			_.ClientId = ClientId;
 			_.ClientSecret = ClientSecret;
 			_.Authority = Authority;
+			_.ClaimActions.MapJsonKey("image", "picture");
 			_.SaveTokens = true;
 			_.Scope.Add("openid");
 			_.Scope.Add("profile");

@@ -13,7 +13,13 @@ namespace Shezzy.Authentication.Actions
 			identity?.Claims.ToList().ForEach(claim =>
 			{
 				identity?.RemoveClaim(claim);
-				identity?.AddClaim(new Claim(claim.Type.Split("/").Last(), claim.Value, claim.ValueType.Split("/").Last(), issuer, claim.OriginalIssuer, claim.Subject));
+				identity?.AddClaim(
+					new Claim(claim.Type, 
+					claim.Value, 
+					claim.ValueType.Split("/").Last(), 
+					issuer, 
+					claim.OriginalIssuer, 
+					claim.Subject));
 			});
 		}
 	}

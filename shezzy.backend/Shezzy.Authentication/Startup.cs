@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Shezzy.Authentication.Extentions;
+using System.Reflection;
 
 namespace Shezzy.Authentication
 {
@@ -29,6 +30,8 @@ namespace Shezzy.Authentication
 					//option.Cookie.SameSite = SameSiteMode.Unspecified;
 				})
 				.RegisterAuthenticationBuilder(Configuration);
+
+			services.AddAutoMapper(Assembly.GetExecutingAssembly()); 
 
 			services
 				.AddSwaggerGen()
