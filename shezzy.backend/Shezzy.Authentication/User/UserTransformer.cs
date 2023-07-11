@@ -61,7 +61,7 @@ namespace Shezzy.Authentication.User
 				});
 
 			mapper.Map<UserDTO>(user);
-			return mapper.Map<UserDTO>(user); ;
+			return user;
 		}
 	}
 }
