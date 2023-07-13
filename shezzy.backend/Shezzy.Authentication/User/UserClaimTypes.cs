@@ -1,6 +1,6 @@
 ﻿namespace Shezzy.Authentication.User
 {
-	public static class ShezzyClaimTypes
+	public static class UserClaimTypes
 	{
 		public const string Picture = "picture";
 		public const string PhoneNumber = "phone_number";

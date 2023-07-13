@@ -15,9 +15,13 @@ namespace Shezzy.Authentication.Controllers.V1
 	public class HomeController : Controller
 	{
 		private readonly IMapper _mapper;
-		public HomeController(IMapper mapper)
+		private readonly IUserService _userService;
+		public HomeController(
+			IMapper mapper,
+			IUserService userService)
 		{
 			_mapper = mapper;
+			_userService = userService;
 			//var logger = Log.ForContext<HomeController>();
 			//logger.Information("HomeController Found");
 
@@ -96,18 +100,11 @@ namespace Shezzy.Authentication.Controllers.V1
 		{
 			var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-			var user = UserTransformer.TransformUser(result);
+			var user = _userService.GetUserInfo(result);
 
-			var claims = result.Principal?.Identities?
-				.FirstOrDefault()?.Claims.Select(claim => new
-				{
-					claim.Issuer,
-					claim.OriginalIssuer,
-					claim.Type,
-					claim.Value
-				});
 			ViewData["data"] = (user);
-			return Json(claims);
+
+			return Json(user);
 		}
 		[Authorize]
 		public async Task<IActionResult> Logout()
