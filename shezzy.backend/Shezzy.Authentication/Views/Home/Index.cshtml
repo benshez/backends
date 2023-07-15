@@ -28,6 +28,7 @@
                 script = d.createElement("script");
                 var js = "http://localhost:4024/shezzy-stepper.iife.js";
                 var options = {
+                    "user": @Html.Raw(Json.Serialize(ViewData["data"])),
                     "container": "shezzy-stepper-container"
                 }
                 script.id = "shezzy-stepper-container-script"
