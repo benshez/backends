@@ -4,19 +4,40 @@
 
 <p><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></p>
 <p><a asp-area="" asp-controller="Home" asp-action="LoginAuth0">Login Auth0</a></p>
-<ul>
-    @if (Context.User.Identity.IsAuthenticated)
-    {
+@if (Context.User.Identity.IsAuthenticated)
+{
+    <ul>
         <li>
             <a>Hello @User.Identity.Name</a>
         </li>
         <li>
             <a asp-controller="Home" asp-action="Logout">Logout</a>
         </li>
-    }
-</ul>
-@if (Context.User.Identity.IsAuthenticated) {
-<script type="text/javascript">
+    </ul>
+
+    <div id="shezzy-stepper-container">
+
+    </div>
+    <div id="shezzy-stepper-containers">
+    </div>
+
+    <script type="text/javascript">
+        setTimeout(function () {
+            (function (w, d, link, script, p) {
+                p = d.getElementById("shezzy-stepper-containers");
+                script = d.createElement("script");
+                var js = "http://localhost:4024/shezzy-stepper.iife.js";
+                var options = {
+                    "container": "shezzy-stepper-container"
+                }
+                script.id = "shezzy-stepper-container-script"
+                script.type = "text/javascript"
+                script.src = js;
+                script.setAttribute("data-options", JSON.stringify(options));
+
+                p.appendChild(script);
+            })(window, document);
+        }, 2000);
         window.initialData = @Html.Raw(Json.Serialize(ViewData["data"]));
-</script>
+    </script>
 }
