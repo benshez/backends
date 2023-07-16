@@ -4,7 +4,7 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "docker-shezzy-backend-firebase": "StartDebugging"
+        "docker-shezzy-backend-auth": "StartDebugging"
       }
     }
   }
