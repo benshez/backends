@@ -1,11 +1,11 @@
 version: "3.4"
 services:
-  docker-shezzy-backend:
+  docker-shezzy-backend-auth:
     build:
       context: .
       dockerfile: Shezzy.Authentication/Dockerfile
-    container_name: docker-shezzy-backend     
-    image: docker-shezzy-backend     
+    container_name: docker-shezzy-backend-auth     
+    image: docker-shezzy-backend-auth    
     networks:
       - shezzy_backend 
     ports:     

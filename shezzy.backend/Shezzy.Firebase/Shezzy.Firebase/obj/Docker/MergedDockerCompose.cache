@@ -1,0 +1,41 @@
+name: dockercompose4282796226351363974
+services:
+  docker-shezzy-backend-firebase:
+    build:
+      context: C:\Users\benvh01\Projects\backends\shezzy.backend\Shezzy.Firebase\Shezzy.Firebase
+      dockerfile: Shezzy.Firebase/Dockerfile
+    container_name: docker-shezzy-backend-firebase
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_Kestrel__Certificates__Default__Password: B3nSh3z*
+      ASPNETCORE_Kestrel__Certificates__Default__Path: ./https/aspnetapp.pfx
+      ASPNETCORE_URLS: https://+:4027
+      GOOGLE_APPLICATION_CREDENTIALS: /home/.config/gcloud/application_default_credentials.json
+    image: docker-shezzy-backend-firebase
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 4025
+      published: "4025"
+      protocol: tcp
+    - mode: ingress
+      target: 4026
+      published: "4026"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\benvh01\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\benvh01\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose4282796226351363974_default
