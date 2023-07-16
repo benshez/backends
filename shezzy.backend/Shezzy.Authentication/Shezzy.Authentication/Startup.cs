@@ -27,6 +27,9 @@ namespace Shezzy.Authentication
 					options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 					options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 				})
+				.AddCookie(option => {
+					option.Cookie.SameSite = SameSiteMode.Unspecified;
+				})
 				.RegisterAuthenticationBuilder(Configuration);
 
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
