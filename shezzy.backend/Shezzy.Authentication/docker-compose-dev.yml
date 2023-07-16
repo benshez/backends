@@ -14,5 +14,5 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:4026
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=B3nSh3z*
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${KESTREL_CERT_PASSWORD}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=./https/aspnetapp.pfx
