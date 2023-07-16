@@ -12,8 +12,8 @@ services:
       - "4027:4027"
       - "4028:4028"      
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ASPNETCORE_URLS=https://+:4028
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${KESTREL_CERT_PASSWORD}
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=./https/aspnetapp.pfx
-      - GOOGLE_APPLICATION_CREDENTIALS=/home/.config/gcloud/application_default_credentials.json
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=${KESTREL_CERT_FILE}
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS_FILE}
