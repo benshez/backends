@@ -2,12 +2,10 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 
+COPY "/gcloud/application_default_credentials.json" "/home/.config/gcloud/application_default_credentials.json"
+
 WORKDIR /app
 COPY ["https", "https"]
-COPY "/gcloud/application_default_credentials.json" "/home/.config/gcloud/application_default_credentials.json"
-#Copy Google application default credentials
-#%APPDATA%\gcloud\application_default_credentials.json
-#$HOME/.config/gcloud/application_default_credentials.json
 
 EXPOSE 80
 EXPOSE 443
