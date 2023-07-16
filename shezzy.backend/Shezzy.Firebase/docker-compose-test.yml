@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  docker-shezzy-backend-firebase:
+    build:
+      context: .
+      dockerfile: Shezzy.Firebase/Dockerfile
+    container_name: docker-shezzy-backend-firebase     
+    image: docker-shezzy-backend-firebase   
+    networks:
+      - shezzy_backend_firebase 
+    ports:     
+      - "4027:4027"
+      - "4028:4028"      
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=https://+:4028
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${KESTREL_CERT_PASSWORD}
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=${KESTREL_CERT_FILE}
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS_FILE}

@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Shezzy.Firebase.Models;
 
 namespace Shezzy.Firebase.Controllers.V1
 {
-    [ApiController]
+	[ApiController]
     [Route("api/v{version:apiVersion}")]
     [ApiVersion("1.0")]
     public class WeatherForecastController : ControllerBase

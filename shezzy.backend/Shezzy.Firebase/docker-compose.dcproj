@@ -9,10 +9,12 @@
     <DockerServiceName>docker-shezzy-backend-firebase</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="docker-compose-prod.yml" />
+    <None Include="docker-compose-test.yml" />
     <None Include="docker-compose.override.yml">
-      <DependentUpon>docker-compose.yml</DependentUpon>
+      <DependentUpon>docker-compose-dev.yml</DependentUpon>
     </None>
-    <None Include="docker-compose.yml" />
+    <None Include="docker-compose-dev.yml" />
     <None Include=".dockerignore" />
   </ItemGroup>
 </Project>
