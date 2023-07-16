@@ -4476,11 +4476,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benvh01\\Projects\\backends\\shezzy.backend\\Shezzy.Firebase\\Shezzy.Firebase\\Shezzy.Firebase\\Shezzy.Firebase.csproj",
+      "projectUniqueName": "C:\\Users\\benvh01\\Projects\\backends\\shezzy.backend\\Shezzy.Firebase\\Shezzy.Firebase\\Shezzy.Firebase.csproj",
       "projectName": "Shezzy.Firebase",
-      "projectPath": "C:\\Users\\benvh01\\Projects\\backends\\shezzy.backend\\Shezzy.Firebase\\Shezzy.Firebase\\Shezzy.Firebase\\Shezzy.Firebase.csproj",
+      "projectPath": "C:\\Users\\benvh01\\Projects\\backends\\shezzy.backend\\Shezzy.Firebase\\Shezzy.Firebase\\Shezzy.Firebase.csproj",
       "packagesPath": "C:\\Users\\benvh01\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benvh01\\Projects\\backends\\shezzy.backend\\Shezzy.Firebase\\Shezzy.Firebase\\Shezzy.Firebase\\obj\\",
+      "outputPath": "C:\\Users\\benvh01\\Projects\\backends\\shezzy.backend\\Shezzy.Firebase\\Shezzy.Firebase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
