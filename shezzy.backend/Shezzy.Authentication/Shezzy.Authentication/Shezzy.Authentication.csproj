@@ -15,12 +15,12 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="7.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="7.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="7.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
     <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.6.0" />
