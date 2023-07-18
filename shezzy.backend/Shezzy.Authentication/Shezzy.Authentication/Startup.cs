@@ -44,6 +44,10 @@ namespace Shezzy.Authentication
 					_.EnableEndpointRouting = false;
 				});
 
+			services.AddOrchardCore()
+			//	.AddMvc()
+				.WithTenants();
+
 			services.AddMvc();
 		}
 
@@ -73,6 +77,8 @@ namespace Shezzy.Authentication
 					name: "default",
 					template: "{controller=Home}/{action=Index}/{id?}");
 			});
+
+			app.UseOrchardCore();
 
 			app.Run();
 		}
