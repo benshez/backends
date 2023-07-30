@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Use this area to provide additional information.</p>
+<p><a href="/v1/@ViewData["tenant"]/Home/Login">Login</a></p>
+
+<ul>
+    @if (Context.User.Identity.IsAuthenticated)
+    {
+        <li>
+            <a>Hello @User.Identity.Name</a>
+        </li>
+        <li>
+            <a href="/v1/@ViewData["tenant"]/Home/Logout">Logout</a>
+        </li>
+    }
+</ul>
