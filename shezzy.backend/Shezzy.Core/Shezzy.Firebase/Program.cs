@@ -1,13 +1,12 @@
+﻿using Shezzy.Firebase;
 using Serilog;
-using Shezzy.Firebase;
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug()
-    .WriteTo.File("logs/rumble-.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
+	.MinimumLevel.Debug()
+	.WriteTo.File("logs/rumble-.txt", rollingInterval: RollingInterval.Day)
+	.CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
-
 var startup = new Startup(builder.Configuration);
 
 startup.ConfigureServices(builder.Services);

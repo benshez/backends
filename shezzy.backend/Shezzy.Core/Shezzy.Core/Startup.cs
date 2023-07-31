@@ -47,42 +47,44 @@ namespace Shezzy.Core
 
 					services
 						.AddSingleton<IUserService, UserService>()
-						.AddAutoMapper(Assembly.GetExecutingAssembly())
-						.AddMvc();
+						.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+					services.AddMvc();
 				})
-				.Configure((app, endpoints, services) => {
+				.Configure((app, endpoints, services) =>
+				{
 					app.UseAuthorization();
 
 					endpoints
 						.MapAreaControllerRoute(
 							name: "Default",
 							areaName: "Shezzy.Core",
-							pattern: "{api-version=v*}/{tenant=Default}/{controller=Home}/{action=Index}/{id?}");
+							pattern: "{api-version=v*}/{tenant=Default}/{controller=*}/{action=Index}/{id?}");
 
-					app.Use(async (context, next) =>
-					{
-						await next();
-						if (context.Response.StatusCode == 404)
-						{
-							context.Response.Redirect("/v1/Default/Home/Index");
-							return;
-						}
-					});
+					//app.Use(async (context, next) =>
+					//{
+					//	await next();
+					//	//	if (context.Response.StatusCode == 404)
+					//	//	{
+					//	//		context.Response.Redirect("/v1/Default/Home/Index");
+					//	//		return;
+					//	//	}
+					//});
 				})
 				.AddMvc()
 				.WithTenants();
 		}
 
 		public void Configure(WebApplication app, IWebHostEnvironment env)
-		{	
+		{
 			app.UseOrchardCore(builder =>
 			{
-				if(env.EnvironmentName == "Development")
+				if (env.IsEnvironment(Environments.Development))
 				{
 					app
-						.UseDeveloperExceptionPage()
-						.UseSwagger()
-						.UseSwaggerUI();
+						.UseDeveloperExceptionPage();
+						//.UseSwagger()
+						//.UseSwaggerUI();
 				}
 				else
 				{
