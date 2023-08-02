@@ -1,0 +1,59 @@
+﻿@model ShellSettings 
+@using OrchardCore.Environment.Shell
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="display-4">Home Page For</h1>
+<p class="lead">@Html.DisplayFor(m => m.Name)</p>
+<ul>
+    
+    <li>
+        <a href="/v1/Default/Home/index">Default</a>
+    </li>
+    <li><a href="/v1/CustomerA/Home/index">customer-a</a></li>
+    <li><a href="/v1/CustomerA/WeatherForecast/GetWeatherForecast">Module1 WeatherForecast Get Controller Action</a></li>
+</ul>
+<p>
+    
+    <a href="@(Url.Action("Login", "Authentication", new { area = "Shezzy.Authentication" }))">Shezzy.Authentication Login</a>
+
+<p><a href="/v1/@Html.DisplayFor(m => m.Name)/Home/LoginAuth0">Login Auth0</a></p>
+@if (Context.User.Identity.IsAuthenticated)
+{
+    <ul>
+        <li>
+            <a>Hello @User.Identity.Name</a>
+        </li>
+        <li>
+            <a href="@(Url.Action("Logout", "Authentication", new { area = "Shezzy.Authentication" }))">Shezzy.Authentication Logout</a>
+        </li>
+    </ul>
+
+    <div id="shezzy-stepper-container">
+
+    </div>
+    <div id="shezzy-stepper-containers">
+    </div>
+
+    <script type="text/javascript">
+        setTimeout(function () {
+            (function (w, d, link, script, p) {
+                p = d.getElementById("shezzy-stepper-containers");
+                script = d.createElement("script");
+                var js = "http://localhost:4024/shezzy-stepper.iife.js";
+                var options = {
+                    "user": @Html.Raw(Json.Serialize(ViewData["data"])),
+                    "container": "shezzy-stepper-container"
+                }
+                script.id = "shezzy-stepper-container-script"
+                script.type = "text/javascript"
+                script.src = js;
+                script.setAttribute("data-options", JSON.stringify(options));
+
+                p.appendChild(script);
+            })(window, document);
+        }, 2000);
+        window.initialData = @Html.Raw(Json.Serialize(ViewData["data"]));
+    </script>
+}

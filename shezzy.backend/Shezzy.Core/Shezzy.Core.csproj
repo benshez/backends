@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.6.0" />
+		<!-- If Shezzy.Firebase were a NuGet package instead of a project you could reference it this way: <PackageReference Include="Shezzy.Firebase" Version="1.0.4" /> -->
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Shezzy.Firebase\Shezzy.Firebase.csproj" />
+		<ProjectReference Include="..\Shezzy.Authentication\Shezzy.Authentication.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="App_Data\" />
+	</ItemGroup>
+
+</Project>
