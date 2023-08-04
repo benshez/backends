@@ -11,7 +11,7 @@ using Shezzy.Authentication.User;
 
 namespace Shezzy.Authentication
 {
-    public class Startup :StartupBase
+    public class Startup : StartupBase
     {
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)

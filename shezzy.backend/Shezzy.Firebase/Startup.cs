@@ -1,24 +1,34 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Google.Cloud.Diagnostics.AspNetCore;
+using Google.Cloud.Diagnostics.Common;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Shezzy.Firebase.Credentials;
 
 namespace Shezzy.Firebase
 {
-    public class Startup
+    public class Startup 
     {
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         public void Configure(IEndpointRouteBuilder endpoints)
         {
+        }
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services
+                .AddTransient<ICredentials, CredentialsModel>();
+
+            var creds = new CredentialsModel(Configuration);
+
+            services
+                .AddGoogleDiagnosticsForAspNetCore(projectId: "shezzy-form", loggingOptions: LoggingOptions.Create(logLevel: LogLevel.Debug));
 
         }
     }
