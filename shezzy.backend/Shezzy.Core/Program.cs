@@ -1,6 +1,32 @@
+using Google.Api;
+using Shezzy.Shared.Abstractions;
+using Shezzy.Shared.MemoryCacheProvider;
+using Shezzy.Shared.OAuth;
+using Shezzy.Shared.Settings;
+using Shezzy.Shared.Extentions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOrchardCore().AddMvc().WithTenants();
+builder
+    .Services
+        .AddMemoryCache();
+
+builder
+    .Services
+        .RegisterHttpClients(builder.Configuration);
+
+builder
+    .Services
+        .AddTransient<IApplicationSettings, ApplicationSettings>()
+        .AddTransient<IAuthTokenManager, AuthTokenManager>()
+        .AddTransient<IMemoryCacheProvider, MemoryCacheProvider>()
+        .AddTransient<ICredentials, CredentialsModel>();
+
+builder
+    .Services
+        .AddOrchardCore()
+        .AddMvc()
+        .WithTenants();
 
 var app = builder.Build();
 

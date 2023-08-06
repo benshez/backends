@@ -13,6 +13,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Shezzy.Firebase\Shezzy.Firebase.csproj" />
 		<ProjectReference Include="..\Shezzy.Authentication\Shezzy.Authentication.csproj" />
+		<ProjectReference Include="..\Shezzy.Shared.Abstractions\Shezzy.Shared.Abstractions.csproj" />
+		<ProjectReference Include="..\Shezzy.Shared\Shezzy.Shared.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

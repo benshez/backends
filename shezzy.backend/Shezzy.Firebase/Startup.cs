@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Google.Cloud.Diagnostics.AspNetCore;
 using Google.Cloud.Diagnostics.Common;
 using Microsoft.AspNetCore.Routing;
@@ -22,13 +20,14 @@ namespace Shezzy.Firebase
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-                .AddTransient<ICredentials, CredentialsModel>();
+           
+            //services
+            //    .AddTransient<ICredentials, CredentialsModel>();
 
-            var creds = new CredentialsModel(Configuration);
+            //var creds = new CredentialsModel(Configuration);
 
-            services
-                .AddGoogleDiagnosticsForAspNetCore(projectId: "shezzy-form", loggingOptions: LoggingOptions.Create(logLevel: LogLevel.Debug));
+            //services
+            //    .AddGoogleDiagnosticsForAspNetCore(projectId: "shezzy-form", loggingOptions: LoggingOptions.Create(logLevel: LogLevel.Debug));
 
         }
     }
