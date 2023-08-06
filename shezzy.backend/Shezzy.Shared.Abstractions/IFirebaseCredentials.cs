@@ -1,6 +1,6 @@
 namespace Shezzy.Shared.Abstractions
 {
-  public interface ICredentials
+  public interface IFirebaseCredentials
   {
     string Type { get; set; }
     string ProjectId { get; set; }

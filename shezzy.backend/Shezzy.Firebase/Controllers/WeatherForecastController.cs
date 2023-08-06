@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Google.Cloud.Firestore.V1;
+using Google.Cloud.Firestore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OrchardCore.Environment.Shell;
+using Shezzy.Shared.Abstractions;
+using Shezzy.Firebase.Services.Form;
 
 namespace Shezzy.Firebase.Controllers
 {
@@ -20,40 +24,27 @@ namespace Shezzy.Firebase.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IShellHost _shellHost;
-
+        private readonly IDatabaseService _databaseService;
+        private readonly FirestoreDb _fireStoreDb;
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
-            IShellHost shellHost)
+            IShellHost shellHost,
+            IDatabaseService databaseService)
         {
             _logger = logger;
             _shellHost = shellHost;
+            _databaseService = databaseService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<WeatherForecast>> Get()
+        public async Task<IEnumerable<DatabaseResultModel>> Get()
         {
-            var shellScope = await _shellHost.GetScopeAsync("Default");
 
-            await shellScope.UsingAsync(async scope =>
-            {
-                var x = scope.ServiceProvider.ToString();
-            //    // You can resolve any service from the shell's Service Provider. This serves instead of injecting
-            //    // services in the constructor.
-            //    var contentManager = scope.ServiceProvider.GetRequiredService<IApplicationSettings>();
-
-                //    // We can use IContentManager as usual, it'll just work.
-                //    // Note that for the sake of simplicity there is no error handling for missing content items here, or
-                //    // any authorization. It's up to you to add those :).
-                //    //var contentItem = await contentManager.GetAsync(contentItemId);
-            });
+            DatabaseQueryService query = new DatabaseQueryService( _databaseService.DataBase );
+            List<DatabaseResultModel> snap = await query.CreateSnapshot();
+            //string x = query.Get().Serialize();
 
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return snap;
         }
     }
 }

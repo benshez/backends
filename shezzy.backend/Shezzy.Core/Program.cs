@@ -4,6 +4,7 @@ using Shezzy.Shared.MemoryCacheProvider;
 using Shezzy.Shared.OAuth;
 using Shezzy.Shared.Settings;
 using Shezzy.Shared.Extentions;
+using Shezzy.Shared.Abstractions.Credentials;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,7 @@ builder
         .AddTransient<IApplicationSettings, ApplicationSettings>()
         .AddTransient<IAuthTokenManager, AuthTokenManager>()
         .AddTransient<IMemoryCacheProvider, MemoryCacheProvider>()
-        .AddTransient<ICredentials, CredentialsModel>();
+        .AddTransient<IFirebaseCredentials, FirebaseCredentialsModel>();
 
 builder
     .Services
