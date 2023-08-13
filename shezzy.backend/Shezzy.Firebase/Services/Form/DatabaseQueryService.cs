@@ -9,34 +9,48 @@ namespace Shezzy.Firebase.Services.Form
 {
     public class DatabaseQueryService : IDatabaseQueryService
     {
-        private readonly FirestoreDb _database;
+        private readonly IDatabaseService _service;
         private string _response;
         public DocumentSnapshot Snapshot { get; set; }
 
         public DatabaseQueryService(
-            FirestoreDb database)
+            IDatabaseService service)
         {
-            _database = database;
+            _service = service;
         }
 
-        async public Task<List<DatabaseResultModel>> CreateSnapshot()
+        async public Task<DocumentSnapshot> CreateSnapshot(string tenant)
         {
-            Query query = _database.Collection("shezzy-form");
+            CollectionReference collection = _service.DataBase.Collection(tenant);
+            QuerySnapshot snapshot = await collection.GetSnapshotAsync();
 
-            QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
-            IEnumerable<DocumentSnapshot> documents = querySnapshot.Documents;
+            DocumentSnapshot document = snapshot.Documents.FirstOrDefault();
+  
+            return document;
+            //IEnumerable<DocumentSnapshot> documents = querySnapshot.Documents(;
 
-            return DatabaseQueryResponse.Deserialize(querySnapshot);
+            // return DatabaseQueryResponse.Deserialize(querySnapshot);
         }
 
-        public DatabaseQueryService Get()
+        public Task<DatabaseResultModel> Get()
         {
             _response = Snapshot.ConvertTo<string>();
-            return this;
+            return null;
         }
 
         public string Serialize() {
             return JsonSerializer.Serialize(_response);
+        }
+
+        public Task<string> GetJson(string tenant)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<Dictionary<string, object>> Get(string tenant)
+        {
+            DocumentSnapshot document =  await CreateSnapshot(tenant);
+            return (Dictionary<string,object>)document.ToDictionary();
         }
     }
 }

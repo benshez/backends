@@ -22,6 +22,7 @@ namespace Shezzy.Firebase
         {
 
             services
+                .AddTransient<IDatabaseQueryService, DatabaseQueryService>()
                 .AddTransient<IDatabaseService, DatabaseService>();
 
             //var creds = new CredentialsModel(Configuration);

@@ -26,7 +26,8 @@ namespace Shezzy.Shared.Abstractions.Credentials
         public string AuthProviderX509CertUrl { get; set; } = "";
         [JsonPropertyName("client_x509_cert_url")]
         public string ClientX509CertUrl { get; set; }
-
+        [JsonPropertyName("universe_domain")]
+        public string UniverseDomain { get; set; }
         public FirebaseCredentialsModel(IConfiguration configuration)
         {
             var sections = configuration.GetSection("Firebase");
@@ -41,6 +42,7 @@ namespace Shezzy.Shared.Abstractions.Credentials
             TokenUri = sections.GetValue<string>("token_uri") ?? string.Empty;
             AuthProviderX509CertUrl = sections.GetValue<string>("auth_provider_x509_cert_url") ?? string.Empty;
             ClientX509CertUrl = sections.GetValue<string>("client_x509_cert_url") ?? string.Empty;
+            UniverseDomain = sections.GetValue<string>("universe_domain") ?? string.Empty;
         }
         public string Serialize()
         {

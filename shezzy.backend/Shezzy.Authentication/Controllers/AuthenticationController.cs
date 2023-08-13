@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OrchardCore.Environment.Shell;
 using System.Threading.Tasks;
 using Shezzy.Authentication.User;
 using Microsoft.AspNetCore.Authentication.Google;
@@ -27,7 +26,7 @@ namespace Shezzy.Authentication.Controllers
             return View();
         }
 
-        public async Task Login(string a)
+        public async Task Login()
         {
             await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties()
             {
@@ -38,7 +37,6 @@ namespace Shezzy.Authentication.Controllers
 
         public async Task<IActionResult> GoogleResponse()
         {
-            //_shellSettings = await _shellSettingsManager.LoadSettingsAsync(_tenant);
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             var user = _userService.GetUserInfo(result);

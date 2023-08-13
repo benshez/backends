@@ -30,7 +30,7 @@ namespace Shezzy.Authentication.User
 
 			return user;
 		}
-		private static IEnumerable<Claim>? GetUserClaims(AuthenticateResult authenticateResult)
+		private static IEnumerable<Claim> GetUserClaims(AuthenticateResult authenticateResult)
 		{
 			var claims = authenticateResult
 				.Principal?

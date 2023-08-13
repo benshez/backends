@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Google.Cloud.Firestore.V1;
 using Google.Cloud.Firestore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OrchardCore.Environment.Shell;
-using Shezzy.Shared.Abstractions;
 using Shezzy.Firebase.Services.Form;
 
 namespace Shezzy.Firebase.Controllers
@@ -23,24 +19,24 @@ namespace Shezzy.Firebase.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IShellHost _shellHost;
-        private readonly IDatabaseService _databaseService;
+        private readonly ShellSettings _shellHost;
+        private readonly IDatabaseQueryService _queryService;
         private readonly FirestoreDb _fireStoreDb;
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
-            IShellHost shellHost,
-            IDatabaseService databaseService)
+            ShellSettings shellHost,
+            IDatabaseQueryService queryService)
         {
             _logger = logger;
             _shellHost = shellHost;
-            _databaseService = databaseService;
+            _queryService = queryService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<DatabaseResultModel>> Get()
+        public async Task<Dictionary<string, object>> Get()
         {
 
-            DatabaseQueryService query = new DatabaseQueryService( _databaseService.DataBase );
-            List<DatabaseResultModel> snap = await query.CreateSnapshot();
+            Dictionary<string, object> snap = await _queryService
+                .Get(_shellHost.RequestUrlPrefix);
             //string x = query.Get().Serialize();
 
             var rng = new Random();

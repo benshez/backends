@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\Forms\**" />
+    <EmbeddedResource Remove="Services\Forms\**" />
+    <None Remove="Services\Forms\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Remove="Pages\_ViewStart.cshtml" />
   </ItemGroup>
 
