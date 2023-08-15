@@ -14,16 +14,17 @@ namespace Shezzy.Firebase.Services.Form
         {
             if (querySnapshot == null) return null;
 
-            return new DatabaseQueryResponse()
-            {
-                Bookings = (from DocumentSnapshot documentSnapshot in querySnapshot.Documents
-                            where documentSnapshot.Exists
-                            select new DatabaseResultModel()
-                            {
-                                shezzy = JsonSerializer.Deserialize<Shezzy>(Serialize(documentSnapshot), JsonOptions.Default),
-                                Id = documentSnapshot.Id
-                            }).ToList()
-            }.Bookings;
+            return null;
+            //return new DatabaseQueryResponse()
+            //{
+            //    Bookings = (from DocumentSnapshot documentSnapshot in querySnapshot.Documents
+            //                where documentSnapshot.Exists
+            //                //select new DatabaseResultModel()
+            //                //{
+            //                //    shezzy = JsonSerializer.Deserialize<Shezzy>(Serialize(documentSnapshot), JsonOptions.Default),
+            //                //    Id = documentSnapshot.Id
+            //                //}).ToList()
+            //}.Bookings;
         }
 
         public static string Serialize(DocumentSnapshot documentSnapshot)

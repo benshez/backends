@@ -7,7 +7,7 @@ namespace Shezzy.Shared.OAuth
 {
     public class AuthTokenManager : IAuthTokenManager
     {
-        private static readonly SemaphoreSlim SemaphoreSlim = new SemaphoreSlim(1, 1);
+        private static readonly SemaphoreSlim SemaphoreSlim = new(1, 1);
         private readonly IApplicationSettings _appSettings;
         private readonly IMemoryCacheProvider _cache;
         private readonly HttpClient _httpClient;

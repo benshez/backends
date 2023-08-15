@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Shezzy.Firebase.Services;
 using Shezzy.Firebase.Services.Form;
 
 namespace Shezzy.Firebase
@@ -22,8 +23,8 @@ namespace Shezzy.Firebase
         {
 
             services
-                .AddTransient<IDatabaseQueryService, DatabaseQueryService>()
-                .AddTransient<IDatabaseService, DatabaseService>();
+                .AddTransient<IFirestoreQueryService, FirestoreQueryService>()
+                .AddTransient<IFirestoreProvider, FirestoreProvider>();
 
             //var creds = new CredentialsModel(Configuration);
 

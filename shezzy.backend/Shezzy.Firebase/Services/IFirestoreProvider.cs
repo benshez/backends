@@ -1,8 +1,8 @@
 ﻿using Google.Cloud.Firestore;
 
-namespace Shezzy.Firebase.Services.Form
+namespace Shezzy.Firebase.Services
 {
-    public interface IDatabaseService
+    public interface IFirestoreProvider
     {
         public FirestoreDb DataBase { get; }
     }

@@ -2,14 +2,14 @@
 using Google.Cloud.Firestore.V1;
 using Shezzy.Shared.Abstractions;
 
-namespace Shezzy.Firebase.Services.Form
+namespace Shezzy.Firebase.Services
 {
-    public class DatabaseService : IDatabaseService
+    public class FirestoreProvider : IFirestoreProvider
     {
         private readonly IFirebaseCredentials _credentials;
         public FirestoreDb DataBase { get; }
 
-        public DatabaseService(
+        public FirestoreProvider(
             IFirebaseCredentials credentials)
         {
             _credentials = credentials;
