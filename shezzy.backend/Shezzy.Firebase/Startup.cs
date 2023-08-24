@@ -1,5 +1,6 @@
 using Google.Cloud.Diagnostics.AspNetCore;
 using Google.Cloud.Diagnostics.Common;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +17,10 @@ namespace Shezzy.Firebase
         {
             Configuration = configuration;
         }
-        public void Configure(IEndpointRouteBuilder endpoints)
+        public void Configure(IApplicationBuilder app, IEndpointRouteBuilder endpoints)
         {
+            //app
+            //    .UseAuthorization();
         }
         public void ConfigureServices(IServiceCollection services)
         {
@@ -25,6 +28,9 @@ namespace Shezzy.Firebase
             services
                 .AddTransient<IFirestoreQueryService, FirestoreQueryService>()
                 .AddTransient<IFirestoreProvider, FirestoreProvider>();
+
+            //services
+            //    .AddAuthorization();
 
             //var creds = new CredentialsModel(Configuration);
 

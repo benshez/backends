@@ -33,6 +33,15 @@ namespace Shezzy.Firebase.Controllers
         [Route("[action]")]
         public async Task<User> AddOrUpdate([FromBody] User user)
         {
+            string tenantId = _shellHost.TenantId;
+
+            if (string.IsNullOrEmpty(tenantId))
+            {
+                _logger.LogAndThrowArgumentNullException($"Tenant Id is required by method {nameof(GetAll)} in {nameof(UserController)}.");
+            }
+
+            user.TenantId = tenantId;
+
             await _queryService.AddOrUpdate(user, _cancellationToken);
 
             return await Get(user.Id);

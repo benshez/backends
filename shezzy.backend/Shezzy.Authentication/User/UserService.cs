@@ -1,44 +1,114 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Shezzy.Authentication.User
 {
-	public class UserService : IUserService
-	{
-		public UserResponseDTO GetUserInfo(AuthenticateResult authenticateResult)
-		{
-			UserResponseDTO user = new();
-			var claims = GetUserClaims(authenticateResult);
+    public class UserService : IUserService
+    {
+        private readonly IHttpContextAccessor _context;
+        private readonly IConfiguration _config;
+        private readonly UserResponseDTO _user;
+        private readonly string _jwtSecret;
+        private AuthenticateResult _authenticateResult = null;
+        private IEnumerable<Claim> _claims = new List<Claim>();
 
-			if(claims != null)
-			{
-				foreach (var claim in claims)
-				{
-					if (claim.Type == ClaimTypes.NameIdentifier) user.NameIdentifier = claim.Value;
-					if (claim.Type == ClaimTypes.Name) user.Name = claim.Value;
-					if (claim.Type == ClaimTypes.GivenName) user.GivenName = claim.Value;
-					if (claim.Type == UserClaimTypes.Picture) user.Picture = claim.Value;
-					if (claim.Type == ClaimTypes.Email) user.EmailAddress = claim.Value;
-					if (claim.Type == UserClaimTypes.PhoneNumber) user.PhoneNumber = claim.Value;
-					if (claim.Type == UserClaimTypes.Sub) user.Sub = claim.Value;
-					if (claim.Type == UserClaimTypes.EmailVerified) user.EmailVerified = Convert.ToBoolean(claim.Value);
-				};
-			};
 
-			return user;
-		}
-		private static IEnumerable<Claim> GetUserClaims(AuthenticateResult authenticateResult)
-		{
-			var claims = authenticateResult
-				.Principal?
-				.Identities?
-				.FirstOrDefault()?
-				.Claims;
 
-			return claims;
-		}
-	}
+        public UserService(
+            IHttpContextAccessor context,
+            IConfiguration configuration)
+        {
+            _context = context;
+            _config = configuration;
+            _user = new UserResponseDTO();
+            _jwtSecret = _config?.GetSection("JWT")?.GetValue<string>("Secret");
+        }
+        public async Task<UserResponseDTO> Authenticate(string schema = CookieAuthenticationDefaults.AuthenticationScheme)
+        {
+
+            if (_context != null && _context.HttpContext != null)
+            {
+                _authenticateResult = await _context.HttpContext.AuthenticateAsync(schema);
+
+                var user = GetUserInfo();
+
+                if (!_context.HttpContext.User.Identity.IsAuthenticated)
+                {
+                    return null;
+                }
+                
+                var principal = _context.HttpContext.User;
+                var sign = _context.HttpContext.SignInAsync(principal);
+                await sign;
+                var token = await _context.HttpContext.GetTokenAsync("access_token");
+                return user;
+            }
+
+            return null;
+        }
+        public IEnumerable<Claim> GetUserClaims()
+        {
+            _claims = _authenticateResult
+                .Principal?
+                .Identities?
+                .FirstOrDefault()?
+                .Claims;
+
+            if (_claims != null)
+            {
+                foreach (var claim in _claims)
+                {
+                    if (claim.Type == ClaimTypes.NameIdentifier) _user.NameIdentifier = claim.Value;
+                    if (claim.Type == ClaimTypes.Name) _user.Name = claim.Value;
+                    if (claim.Type == ClaimTypes.GivenName) _user.GivenName = claim.Value;
+                    if (claim.Type == UserClaimTypes.Picture) _user.Picture = claim.Value;
+                    if (claim.Type == ClaimTypes.Email) _user.EmailAddress = claim.Value;
+                    if (claim.Type == UserClaimTypes.PhoneNumber) _user.PhoneNumber = claim.Value;
+                    if (claim.Type == UserClaimTypes.Sub) _user.Sub = claim.Value;
+                    if (claim.Type == UserClaimTypes.Audience) _user.Sub = claim.Value;
+                    if (claim.Type == UserClaimTypes.EmailVerified) _user.EmailVerified = Convert.ToBoolean(claim.Value);
+                    if (_user.Claims == null)
+                    {
+                        _user.Claims = new List<Claim>();
+                    }
+
+                    _user.Claims.Append(claim);
+                };
+            };
+
+            return _claims;
+        }
+        public UserResponseDTO GetUserInfo()
+        {
+            GetUserClaims();
+
+            _user.AccessToken = GenerateJwtToken();
+
+            return _user;
+        }
+        private object GenerateJwtToken()
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSecret));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _config.GetValue<string>("ValidIssuer"),
+                audience: _config.GetValue<string>("ValidAudience"),
+                claims: _user.Claims,
+                expires: DateTime.Now.AddMinutes(120),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+    }
 }

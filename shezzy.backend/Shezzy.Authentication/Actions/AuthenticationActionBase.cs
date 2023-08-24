@@ -37,17 +37,17 @@ namespace Shezzy.Authentication.Actions
 				{
 					if (context != null && context.Principal != null)
 					{
-						ClaimsIdentity? identity = context.Principal.Identity as ClaimsIdentity;
-						new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
-					}
-
-					return Task.FromResult(0);
+						var identity = (ClaimsIdentity)context.Principal.Identity;
+                        new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
+                    }
+    
+                    return Task.FromResult(0);
 				}
 			};
 
 			if (_ is GoogleOptions googleAction)
 			{
-				googleAction.AccessType = "offline";
+                googleAction.AccessType = "offline";
 			}
 
 			if (_ is MicrosoftAccountOptions microsoftAccountAction)
@@ -76,9 +76,9 @@ namespace Shezzy.Authentication.Actions
 				{
 					if (context != null && context.Principal != null)
 					{
-						ClaimsIdentity? identity = context.Principal.Identity as ClaimsIdentity;
-						new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
-					}
+                        var identity = (ClaimsIdentity)context.Principal.Identity;
+                        new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
+                    }
 
 					return Task.FromResult(0);
 				}
@@ -86,5 +86,5 @@ namespace Shezzy.Authentication.Actions
 
 			_.ClaimsIssuer = Issuer;
 		}
-	}
+    }
 }

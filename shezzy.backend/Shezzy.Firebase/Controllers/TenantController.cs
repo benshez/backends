@@ -13,6 +13,7 @@ namespace Shezzy.Firebase.Controllers
     [ApiController]
     [Route("[controller]")]
     [IgnoreAntiforgeryToken]
+    [Authorize]
     public class TenantController : ControllerBase
     {
         private readonly ISLogger _logger;
@@ -31,13 +32,13 @@ namespace Shezzy.Firebase.Controllers
             _logger = logger;
         }
 
+
         [HttpPost]
         [Route("[action]")]
         [IgnoreAntiforgeryToken]
-        public async Task<Tenant> AddOrUpdate()
+        [Authorize]
+        public async Task<Tenant> AddOrUpdate([FromBody] Tenant tenant)
         {
-            Tenant tenant = new Tenant () { Id= _shellHost.TenantId, Name = _shellHost.RequestUrlPrefix, Users = new List<string> { "ea73aece120b49ad9afbc9f617b1ba13" } };
-
             await _queryService.AddOrUpdate(tenant, _cancellationToken);
 
             return await Get();
@@ -45,6 +46,7 @@ namespace Shezzy.Firebase.Controllers
 
         [HttpGet]
         [Route("[action]")]
+        [Authorize]
         public async Task<Tenant> Get()
         {
             string tenantId = _shellHost.TenantId;
@@ -59,6 +61,7 @@ namespace Shezzy.Firebase.Controllers
 
         [HttpGet]
         [Route("[action]")]
+        [Authorize]
         public async Task<IReadOnlyCollection<Tenant>> GetAll()
         {
             string tenantId = _shellHost.TenantId;
