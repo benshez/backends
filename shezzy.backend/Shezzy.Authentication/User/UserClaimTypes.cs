@@ -7,6 +7,5 @@
 		public const string Sub = "sub";
 		public const string EmailVerified = "email_verified";
 		public const string Audience = "aud";
-        public const string AccessToken = "access_token";
 	}
 }

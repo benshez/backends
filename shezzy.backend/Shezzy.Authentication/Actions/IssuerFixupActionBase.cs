@@ -9,7 +9,10 @@ namespace Shezzy.Authentication.Actions
 	{
 		public IssuerFixupActionBase() : base(ClaimTypes.NameIdentifier, string.Empty) { }
 
-		public override void Run(JsonElement userData, ClaimsIdentity? identity, string issuer)
+		public override void Run(
+			JsonElement userData, 
+			ClaimsIdentity? identity, 
+			string issuer)
 		{
 			identity?.Claims.ToList().ForEach(claim =>
 			{

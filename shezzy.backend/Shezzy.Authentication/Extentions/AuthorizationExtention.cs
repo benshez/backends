@@ -4,7 +4,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Threading.Tasks;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -27,14 +26,14 @@ namespace Shezzy.Authentication.Extentions
                 var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
                 builder
-                    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+                    .AddJwtBearer(options =>
                     {
                         options.SaveToken = true;
                         options.RequireHttpsMetadata = false;
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
-                            ValidateIssuer = true,
-                            ValidateAudience = true,
+                            ValidateIssuer = false,
+                            ValidateAudience = false,
                             ValidateLifetime = true,
                             ValidateIssuerSigningKey = true,
                             ValidIssuer = section.GetValue<string>("ValidIssuer"),
@@ -42,7 +41,7 @@ namespace Shezzy.Authentication.Extentions
                             IssuerSigningKey = securityKey
                         };
                     })
-                    .AddPolicyScheme("Identity.Application", "Bearer", options =>
+                    .AddPolicyScheme("JWT_OR_COOKIE", "JWT_OR_COOKIE", options =>
                     {
                         options.ForwardDefaultSelector = context =>
                         {

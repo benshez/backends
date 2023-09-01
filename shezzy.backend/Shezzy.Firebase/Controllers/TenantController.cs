@@ -36,7 +36,7 @@ namespace Shezzy.Firebase.Controllers
         [HttpPost]
         [Route("[action]")]
         [IgnoreAntiforgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Create,Update")]
         public async Task<Tenant> AddOrUpdate([FromBody] Tenant tenant)
         {
             await _queryService.AddOrUpdate(tenant, _cancellationToken);
@@ -46,7 +46,7 @@ namespace Shezzy.Firebase.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        [Authorize]
+        [Authorize(Roles = "Read")]
         public async Task<Tenant> Get()
         {
             string tenantId = _shellHost.TenantId;
@@ -61,7 +61,7 @@ namespace Shezzy.Firebase.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        [Authorize]
+        [Authorize(Roles = "Read")]
         public async Task<IReadOnlyCollection<Tenant>> GetAll()
         {
             string tenantId = _shellHost.TenantId;

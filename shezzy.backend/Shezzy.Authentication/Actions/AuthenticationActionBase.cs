@@ -32,17 +32,17 @@ namespace Shezzy.Authentication.Actions
 			_.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
 			_.Events = new OAuthEvents()
 			{
-				OnRemoteFailure = new AuthenticationBase().HandleOnRemoteFailure,
-				OnTicketReceived = (context) =>
-				{
-					if (context != null && context.Principal != null)
-					{
-						var identity = (ClaimsIdentity)context.Principal.Identity;
-                        new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
-                    }
+				//OnRemoteFailure = new AuthenticationBase().HandleOnRemoteFailure,
+				//OnTicketReceived = (context) =>
+				//{
+				//	if (context != null && context.Principal != null)
+				//	{
+				//		var identity = (ClaimsIdentity)context.Principal.Identity;
+    //                    new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
+    //                }
     
-                    return Task.FromResult(0);
-				}
+    //                return Task.FromResult(0);
+				//}
 			};
 
 			if (_ is GoogleOptions googleAction)
@@ -71,17 +71,17 @@ namespace Shezzy.Authentication.Actions
 			_.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
 			_.Events = new OpenIdConnectEvents()
 			{
-				OnRemoteFailure = new AuthenticationBase().HandleOnRemoteFailure,
-				OnTicketReceived = (context) =>
-				{
-					if (context != null && context.Principal != null)
-					{
-                        var identity = (ClaimsIdentity)context.Principal.Identity;
-                        new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
-                    }
+				//OnRemoteFailure = new AuthenticationBase().HandleOnRemoteFailure,
+				//OnTicketReceived = (context) =>
+				//{
+				//	if (context != null && context.Principal != null)
+				//	{
+    //                    var identity = (ClaimsIdentity)context.Principal.Identity;
+    //                    new IssuerFixupActionBase().Run(new JsonElement(), identity, Issuer);
+    //                }
 
-					return Task.FromResult(0);
-				}
+				//	return Task.FromResult(0);
+				//}
 			};
 
 			_.ClaimsIssuer = Issuer;

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Shezzy.Firebase.Services.Tenant;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -22,8 +23,6 @@ namespace Shezzy.Authentication.User
         private AuthenticateResult _authenticateResult = null;
         private IEnumerable<Claim> _claims = new List<Claim>();
 
-
-
         public UserService(
             IHttpContextAccessor context,
             IConfiguration configuration)
@@ -31,30 +30,33 @@ namespace Shezzy.Authentication.User
             _context = context;
             _config = configuration;
             _user = new UserResponseDTO();
-            _jwtSecret = _config?.GetSection("JWT")?.GetValue<string>("Secret");
+            _jwtSecret = _config?
+                .GetSection("JWT")?
+                .GetValue<string>("Secret");
         }
         public async Task<UserResponseDTO> Authenticate(string schema = CookieAuthenticationDefaults.AuthenticationScheme)
         {
-
             if (_context != null && _context.HttpContext != null)
             {
                 _authenticateResult = await _context.HttpContext.AuthenticateAsync(schema);
+       
+                var usr = GetUserInfo();
+                var indentity = _context.HttpContext.User.Identity;
 
-                var user = GetUserInfo();
-
-                if (!_context.HttpContext.User.Identity.IsAuthenticated)
-                {
-                    return null;
-                }
-                
-                var principal = _context.HttpContext.User;
-                var sign = _context.HttpContext.SignInAsync(principal);
-                await sign;
-                var token = await _context.HttpContext.GetTokenAsync("access_token");
+                if (indentity != null && !indentity.IsAuthenticated) return null;
+                 
                 return user;
             }
 
             return null;
+        }
+        public UserResponseDTO GetUserInfo()
+        {
+            GetUserClaims();
+
+            _user.AccessToken = GenerateJwtToken();
+
+            return _user;
         }
         public IEnumerable<Claim> GetUserClaims()
         {
@@ -77,24 +79,13 @@ namespace Shezzy.Authentication.User
                     if (claim.Type == UserClaimTypes.Sub) _user.Sub = claim.Value;
                     if (claim.Type == UserClaimTypes.Audience) _user.Sub = claim.Value;
                     if (claim.Type == UserClaimTypes.EmailVerified) _user.EmailVerified = Convert.ToBoolean(claim.Value);
-                    if (_user.Claims == null)
-                    {
-                        _user.Claims = new List<Claim>();
-                    }
+                    _user.Claims ??= new List<Claim>();
 
                     _user.Claims.Append(claim);
                 };
             };
 
             return _claims;
-        }
-        public UserResponseDTO GetUserInfo()
-        {
-            GetUserClaims();
-
-            _user.AccessToken = GenerateJwtToken();
-
-            return _user;
         }
         private object GenerateJwtToken()
         {
@@ -104,7 +95,7 @@ namespace Shezzy.Authentication.User
             var token = new JwtSecurityToken(
                 issuer: _config.GetValue<string>("ValidIssuer"),
                 audience: _config.GetValue<string>("ValidAudience"),
-                claims: _user.Claims,
+                claims: _context.HttpContext.User.Claims,
                 expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: credentials);
 

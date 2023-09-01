@@ -7,19 +7,12 @@ using Shezzy.Shared.Extentions;
 using Shezzy.Shared.Abstractions.Credentials;
 using Serilog;
 using Shezzy.Shared.Logger;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Shezzy.Authentication.User;
 using Shezzy.Authentication.Extentions;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Shezzy.Authentication.Middleware;
-using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.Net.Http.Headers;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.DataProtection;
-using System.Text;
-using Microsoft.Extensions.Configuration;
+using Shezzy.Authentication.Services;
+using Microsoft.AspNetCore.Authentication;
+using Shezzy.Firebase.Services.Form;
+using Shezzy.Firebase.Services;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
@@ -42,13 +35,14 @@ builder
         .AddTransient<IApplicationSettings, ApplicationSettings>()
         .AddTransient<IAuthTokenManager, AuthTokenManager>()
         .AddTransient<IMemoryCacheProvider, MemoryCacheProvider>()
-        .AddTransient<IFirebaseCredentials, FirebaseCredentialsModel>();
+        .AddTransient<IFirebaseCredentials, FirebaseCredentialsModel>()
+        .AddTransient<IFirestoreQueryService, FirestoreQueryService>()
+        .AddTransient<IFirestoreProvider, FirestoreProvider>()
+        .AddTransient<IClaimsTransformation, ClaimsTransformer>();
 
 builder
     .Services
     .AddSingleton<IUserService, UserService>();
-
-
 
 builder
     .Services
@@ -61,54 +55,15 @@ builder
                {
                    options.DefaultScheme = "JWT_OR_COOKIE";
                    options.DefaultChallengeScheme = "JWT_OR_COOKIE";
-                   //options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                   //options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                   //options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                })
                .AddCookie(options =>
                {
-                   options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Unspecified;
+                   options.Cookie.SameSite = SameSiteMode.Unspecified;
                    options.ExpireTimeSpan = TimeSpan.FromDays(1);
                })
-            .AddJwtBearer(options =>
-            {
-                var section = builder.Configuration.GetSection("JWT");
-                var secret = string.IsNullOrEmpty(section.GetValue<string>("Secret")) ? "" : section.GetValue<string>("Secret");
-
-                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
-                   var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-                   options.RequireHttpsMetadata = false;
-                   options.SaveToken = true;
-                   options.TokenValidationParameters = new TokenValidationParameters
-                   {
-                       ValidateIssuerSigningKey = true,
-                       IssuerSigningKey = securityKey,
-                       ValidateIssuer = false,
-                       ValidateAudience = false
-                   };
-                   //options.SecurityTokenValidators.Clear();
-                   //options.SecurityTokenValidators.Add(new GoogleTokenValidator());
-               })
-                .AddPolicyScheme("JWT_OR_COOKIE", "JWT_OR_COOKIE", options => {
-                    options.ForwardDefaultSelector = context =>
-                    {
-                        string authorization = context.Request.Headers[HeaderNames.Authorization];
-                        if (!string.IsNullOrEmpty(authorization) && authorization.StartsWith("Bearer "))
-                            return JwtBearerDefaults.AuthenticationScheme;
-
-                        return CookieAuthenticationDefaults.AuthenticationScheme;
-                    };
-                })
+               .RegisterAuthorizationBuilder(builder.Configuration)
                .RegisterAuthenticationBuilder(builder.Configuration);
-            //.RegisterAuthorizationBuilder(builder.Configuration);
 
-            //var policy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme, JwtBearerDefaults.AuthenticationScheme)
-            //    .RequireAuthenticatedUser()
-            //    .Build();
-
-            //services
-            //    .AddAuthorization(m => m.DefaultPolicy = policy);
             services
                 .AddControllersWithViews();
         })

@@ -1,5 +1,6 @@
 ﻿using Google.Cloud.Firestore;
 using System;
+using System.Collections.Generic;
 
 namespace Shezzy.Firebase.Services.Tenant
 {
@@ -12,5 +13,9 @@ namespace Shezzy.Firebase.Services.Tenant
         public string TenantId { get; set; }
         [FirestoreProperty]
         public string FirstName { get; set; }
+        [FirestoreProperty]
+        public string EmailAddress { get; set; }
+        [FirestoreProperty]
+        public IEnumerable<string> Claims { get; set; }
     }
 }

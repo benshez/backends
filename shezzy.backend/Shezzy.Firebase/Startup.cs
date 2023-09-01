@@ -25,9 +25,9 @@ namespace Shezzy.Firebase
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services
-                .AddTransient<IFirestoreQueryService, FirestoreQueryService>()
-                .AddTransient<IFirestoreProvider, FirestoreProvider>();
+            //services
+            //    .AddTransient<IFirestoreQueryService, FirestoreQueryService>()
+            //    .AddTransient<IFirestoreProvider, FirestoreProvider>();
 
             //services
             //    .AddAuthorization();
