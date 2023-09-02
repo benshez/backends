@@ -1,6 +1,9 @@
 ﻿using Google.Cloud.Firestore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Security.Claims;
 
 namespace Shezzy.Firebase.Services.Tenant
 {
@@ -16,6 +19,24 @@ namespace Shezzy.Firebase.Services.Tenant
         [FirestoreProperty]
         public string EmailAddress { get; set; }
         [FirestoreProperty]
-        public IEnumerable<string> Claims { get; set; }
+        public UserRoles UserRoles { get; set; }
+
+        public List<Claim> GetRoles() {
+            var claims = new List<Claim> { };
+
+            UserRoles.Tenant.ToList().ForEach(_ => claims.Add(new Claim(ClaimTypes.Role, $"Tenant.{_}", DateTime.Now.ToString(CultureInfo.InvariantCulture))));
+            UserRoles.User.ToList().ForEach(_ => claims.Add(new Claim(ClaimTypes.Role, $"User.{_}", DateTime.Now.ToString(CultureInfo.InvariantCulture))));
+
+            return claims;
+        }
+    }
+
+    [FirestoreData]
+    public class UserRoles
+    {
+        [FirestoreProperty]
+        public IEnumerable<string> Tenant { get; set; }
+        [FirestoreProperty]
+        public IEnumerable<string> User { get; set; }
     }
 }

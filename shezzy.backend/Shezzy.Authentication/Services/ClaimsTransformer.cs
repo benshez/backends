@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using OrchardCore.Modules;
 using Shezzy.Authentication.User;
 using Shezzy.Firebase.Services;
@@ -62,19 +63,10 @@ namespace Shezzy.Authentication.Services
 
                 if (user != null && user.Count != 0)
                 {
-                    var claims = new List<Claim> { };
-
-                    user?.FirstOrDefault()?.Claims.ToList().ForEach(_ =>
-                    {
-                        claims.Add(new Claim(ClaimTypes.Role, _, DateTime.Now.ToString(CultureInfo.InvariantCulture)));
-                    });
-
                     transformed.AddIdentity(
-                        new ClaimsIdentity(claims));
+                        new ClaimsIdentity(user.FirstOrDefault()?.GetRoles()));
                 }
             }
-
-
 
             return Task.FromResult(transformed);
         }

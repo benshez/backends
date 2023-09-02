@@ -3,11 +3,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Shezzy.Firebase.Services.Tenant;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,15 +35,14 @@ namespace Shezzy.Authentication.User
         public async Task<UserResponseDTO> Authenticate(string schema = CookieAuthenticationDefaults.AuthenticationScheme)
         {
             if (_context != null && _context.HttpContext != null)
-            {
-                _authenticateResult = await _context.HttpContext.AuthenticateAsync(schema);
-       
-                var usr = GetUserInfo();
+            { 
+                var user = GetUserInfo();
+
                 var indentity = _context.HttpContext.User.Identity;
 
                 if (indentity != null && !indentity.IsAuthenticated) return null;
                  
-                return user;
+                return await Task.FromResult(user);
             }
 
             return null;
@@ -60,32 +57,9 @@ namespace Shezzy.Authentication.User
         }
         public IEnumerable<Claim> GetUserClaims()
         {
-            _claims = _authenticateResult
-                .Principal?
-                .Identities?
-                .FirstOrDefault()?
-                .Claims;
+            _user.Claims = _context?.HttpContext?.User.Claims;
 
-            if (_claims != null)
-            {
-                foreach (var claim in _claims)
-                {
-                    if (claim.Type == ClaimTypes.NameIdentifier) _user.NameIdentifier = claim.Value;
-                    if (claim.Type == ClaimTypes.Name) _user.Name = claim.Value;
-                    if (claim.Type == ClaimTypes.GivenName) _user.GivenName = claim.Value;
-                    if (claim.Type == UserClaimTypes.Picture) _user.Picture = claim.Value;
-                    if (claim.Type == ClaimTypes.Email) _user.EmailAddress = claim.Value;
-                    if (claim.Type == UserClaimTypes.PhoneNumber) _user.PhoneNumber = claim.Value;
-                    if (claim.Type == UserClaimTypes.Sub) _user.Sub = claim.Value;
-                    if (claim.Type == UserClaimTypes.Audience) _user.Sub = claim.Value;
-                    if (claim.Type == UserClaimTypes.EmailVerified) _user.EmailVerified = Convert.ToBoolean(claim.Value);
-                    _user.Claims ??= new List<Claim>();
-
-                    _user.Claims.Append(claim);
-                };
-            };
-
-            return _claims;
+            return _user.Claims;
         }
         private object GenerateJwtToken()
         {
@@ -95,7 +69,7 @@ namespace Shezzy.Authentication.User
             var token = new JwtSecurityToken(
                 issuer: _config.GetValue<string>("ValidIssuer"),
                 audience: _config.GetValue<string>("ValidAudience"),
-                claims: _context.HttpContext.User.Claims,
+                claims: _user.Claims,
                 expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: credentials);
 

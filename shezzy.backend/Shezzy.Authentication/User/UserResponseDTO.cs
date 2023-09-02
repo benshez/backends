@@ -15,6 +15,6 @@ namespace Shezzy.Authentication.User
         public string Audience { get; set; }
         public object AccessToken { get; set; }
         public bool EmailVerified { get; set; }
-        public List<Claim> Claims { get; set; }
+        public IEnumerable<Claim> Claims { get; set; }
     }
 }

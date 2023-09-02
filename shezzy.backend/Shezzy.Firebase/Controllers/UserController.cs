@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OrchardCore.Environment.Shell;
 using Shezzy.Firebase.Services.Form;
 using Shezzy.Firebase.Services.Tenant;
 using Shezzy.Shared.Abstractions;
 using System.Collections.Generic;
+using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,6 +33,7 @@ namespace Shezzy.Firebase.Controllers
 
         [HttpPost]
         [Route("[action]")]
+        [Authorize(Roles = "User.Write")]
         public async Task<User> AddOrUpdate([FromBody] User user)
         {
             string tenantId = _shellHost.TenantId;
@@ -49,6 +52,7 @@ namespace Shezzy.Firebase.Controllers
 
         [HttpGet]
         [Route("[action]")]
+        [Authorize(Roles = "User.Read")]
         public async Task<User> Get([FromQuery] string userId)
         {
             if (string.IsNullOrEmpty(userId))
@@ -61,6 +65,7 @@ namespace Shezzy.Firebase.Controllers
 
         [HttpGet]
         [Route("[action]")]
+        [Authorize(Roles = "User.Read")]
         public async Task<IReadOnlyCollection<User>> GetAll()
         {
             string tenantId = _shellHost.TenantId;
