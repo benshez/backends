@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using OrchardCore.Modules;
 using Shezzy.Authentication.User;
-using Shezzy.Firebase.Services;
 using Shezzy.Firebase.Services.Form;
-using Shezzy.Firebase.Services.Tenant;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading;
@@ -34,12 +28,12 @@ namespace Shezzy.Authentication.Services
 
         public Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
         {
-            var transformed = new ClaimsPrincipal();
+            var claimsIdentity = (ClaimsIdentity)principal.Identity;
+
+            if (claimsIdentity == null || !claimsIdentity.IsAuthenticated) return null;
 
             if (principal != null && principal.Identity != null && principal.Identity.IsAuthenticated)
             {
-                transformed.AddIdentities(principal.Identities);
-
                 if (principal.Claims != null)
                 {
                     foreach (var claim in principal.Claims)
@@ -63,12 +57,12 @@ namespace Shezzy.Authentication.Services
 
                 if (user != null && user.Count != 0)
                 {
-                    transformed.AddIdentity(
-                        new ClaimsIdentity(user.FirstOrDefault()?.GetRoles()));
+                    var claims = user?.FirstOrDefault()?.GetClaims();
+                    if (claims != null) claimsIdentity.AddClaims(claims);
                 }
             }
 
-            return Task.FromResult(transformed);
+            return Task.FromResult(principal);
         }
     }
 }

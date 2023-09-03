@@ -73,7 +73,7 @@ namespace Shezzy.Firebase.Services.Form
         {
             var collection = _service.DataBase.Collection(typeof(T).Name);
             var snapshot = await collection.GetSnapshotAsync(ct);
-
+       
             return snapshot.Documents.Select(x => x.ConvertTo<T>()).ToList();
         }
 

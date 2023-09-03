@@ -21,9 +21,11 @@ namespace Shezzy.Firebase.Services.Tenant
         [FirestoreProperty]
         public UserRoles UserRoles { get; set; }
 
-        public List<Claim> GetRoles() {
+        public List<Claim> GetClaims() {
             var claims = new List<Claim> { };
 
+            claims.Add(new Claim(ClaimTypes.Sid, Id));
+            claims.Add(new Claim(ClaimTypes.GroupSid, TenantId));
             UserRoles.Tenant.ToList().ForEach(_ => claims.Add(new Claim(ClaimTypes.Role, $"Tenant.{_}", DateTime.Now.ToString(CultureInfo.InvariantCulture))));
             UserRoles.User.ToList().ForEach(_ => claims.Add(new Claim(ClaimTypes.Role, $"User.{_}", DateTime.Now.ToString(CultureInfo.InvariantCulture))));
 
