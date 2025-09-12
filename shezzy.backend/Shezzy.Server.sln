@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shezzy.Core", "Shezzy.Core\Shezzy.Core.csproj", "{92C9D67F-6872-4CD9-BC32-1263105E7023}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shezzy.Firebase", "Shezzy.Firebase\Shezzy.Firebase.csproj", "{2AE4E01E-0C6D-4B5C-A39A-306E1318C662}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shezzy.Authentication", "Shezzy.Authentication\Shezzy.Authentication.csproj", "{16806654-098A-4B94-9462-24645DF3A2D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC55DC3E-7C9E-4599-B7B4-6372B8E0CFB4}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		NuGet.config = NuGet.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shezzy.Shared.Abstractions", "Shezzy.Shared.Abstractions\Shezzy.Shared.Abstractions.csproj", "{A1793E00-1FF3-478F-BFF8-1A0839E5D13B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shezzy.Shared", "Shezzy.Shared\Shezzy.Shared.csproj", "{2C217D87-1E9C-45D1-BA1A-2D6356DC3D39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92C9D67F-6872-4CD9-BC32-1263105E7023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C9D67F-6872-4CD9-BC32-1263105E7023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C9D67F-6872-4CD9-BC32-1263105E7023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C9D67F-6872-4CD9-BC32-1263105E7023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE4E01E-0C6D-4B5C-A39A-306E1318C662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE4E01E-0C6D-4B5C-A39A-306E1318C662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE4E01E-0C6D-4B5C-A39A-306E1318C662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE4E01E-0C6D-4B5C-A39A-306E1318C662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16806654-098A-4B94-9462-24645DF3A2D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16806654-098A-4B94-9462-24645DF3A2D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16806654-098A-4B94-9462-24645DF3A2D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16806654-098A-4B94-9462-24645DF3A2D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1793E00-1FF3-478F-BFF8-1A0839E5D13B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1793E00-1FF3-478F-BFF8-1A0839E5D13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1793E00-1FF3-478F-BFF8-1A0839E5D13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1793E00-1FF3-478F-BFF8-1A0839E5D13B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C217D87-1E9C-45D1-BA1A-2D6356DC3D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C217D87-1E9C-45D1-BA1A-2D6356DC3D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C217D87-1E9C-45D1-BA1A-2D6356DC3D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C217D87-1E9C-45D1-BA1A-2D6356DC3D39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AD5090C-3961-4E2B-9C72-D91ED2E7C1FA}
+	EndGlobalSection
+EndGlobal
