@@ -9,8 +9,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.10" />
 		<PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.6.0" />
-		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-		<PackageReference Include="System.Text.Json" Version="9.0.8" />
+		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+		<PackageReference Include="System.Text.Json" Version="9.0.9" />
 		<!-- If Shezzy.Firebase were a NuGet package instead of a project you could reference it this way: <PackageReference Include="Shezzy.Firebase" Version="1.0.4" /> -->
 	</ItemGroup>
 

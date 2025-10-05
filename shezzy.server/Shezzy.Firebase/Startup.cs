@@ -1,4 +1,3 @@
-using Google.Cloud.Diagnostics.AspNetCore;
 using Google.Cloud.Diagnostics.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
