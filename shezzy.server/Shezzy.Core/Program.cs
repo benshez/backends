@@ -44,6 +44,10 @@ builder
     .Services
     .AddSingleton<IUserService, UserService>();
 
+//builder
+//    .Services
+//        .AddScoped<IAuthTokenManager, AuthTokenManager>();
+
 builder
     .Services
         .AddOrchardCore()

@@ -56,11 +56,11 @@
     </li>
 </ul>
 
-@if (Context.User.Identity.IsAuthenticated)
+@if (Context!.User!.Identity!.IsAuthenticated)
 {
     <ul>
         <li>
-            <a>Hello @User.Identity.Name</a>
+            <a>Hello @User!.Identity!.Name</a>
         </li>
         <li>
             <a href="@(Url.Action("Logout", "Authentication", new { area = "Shezzy.Authentication" }))">Shezzy.Authentication Login</a>

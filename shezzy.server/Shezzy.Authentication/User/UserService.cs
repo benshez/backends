@@ -18,8 +18,6 @@ namespace Shezzy.Authentication.User
         private readonly IConfiguration _config;
         private readonly UserResponseDTO _user;
         private readonly string _jwtSecret;
-        private AuthenticateResult _authenticateResult = null;
-        private IEnumerable<Claim> _claims = new List<Claim>();
 
         public UserService(
             IHttpContextAccessor context,

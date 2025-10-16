@@ -8,6 +8,7 @@ namespace Shezzy.Firebase.Services.Form
 {
     public class DatabaseQueryResponse
     {
+        #nullable enable
         List<DatabaseResultModel>? Bookings { get; set; }
 
         public static List<DatabaseResultModel>? Deserialize(QuerySnapshot querySnapshot)
@@ -26,7 +27,7 @@ namespace Shezzy.Firebase.Services.Form
             //                //}).ToList()
             //}.Bookings;
         }
-
+        #nullable disable
         public static string Serialize(DocumentSnapshot documentSnapshot)
         {
             return JsonSerializer.Serialize(documentSnapshot.ToDictionary(), JsonOptions.Default);

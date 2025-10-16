@@ -20,7 +20,7 @@ namespace Shezzy.Shared.OAuth
             _appSettings = appSettings;
             _cache = cache;
 
-            _httpClient = httpClientFactory.CreateClient("");
+            _httpClient = httpClientFactory.CreateClient(nameof(AuthTokenManager));
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
