@@ -44,10 +44,6 @@ builder
     .Services
     .AddSingleton<IUserService, UserService>();
 
-//builder
-//    .Services
-//        .AddScoped<IAuthTokenManager, AuthTokenManager>();
-
 builder
     .Services
         .AddOrchardCore()
@@ -78,7 +74,6 @@ builder
             builder.UseStaticFiles();
             builder.UseCookiePolicy();
             builder.UseHttpsRedirection();
-            builder.UseRouting();
             builder.UseAuthentication();
             builder.UseAuthorization();
         })
