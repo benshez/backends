@@ -87,3 +87,38 @@
     <li>Path: @app.Application.Path</li>
     <li>Root: @app.Application.Root</li>
 </ul>
+<div id="form-builder-container">
+</div>
+<div id="form-builder-parent-container">
+</div>
+
+<script type="text/javascript">
+    setTimeout(function () {
+        (function (w, d, link, script, p) {
+            p = d.getElementById("form-builder-parent-container");
+            script = d.createElement("script");
+            var js = "http://localhost:4173/something.js";
+            var options = {
+                "userId": "da",
+                "container": "form-builder-container",
+                "userInfo": {
+                    "id": "da",
+                    "username": "ab",
+                    "email": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "gender": "",
+                    "image": "",
+                    "token": "werwerw"
+                }
+                }
+            script.id = "form-builder-container-script"
+            script.type = "text/javascript"
+            script.src = js;
+            script.setAttribute("data-options", JSON.stringify(options));
+
+            p.appendChild(script);
+        })(window, document);
+    }, 2000);
+    window.initialData = @Html.Raw(Json.Serialize(ViewData["data"]));
+</script>
