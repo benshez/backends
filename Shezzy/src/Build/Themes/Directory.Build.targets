@@ -9,7 +9,6 @@
     <PackageReference Include="OrchardCore.Menu" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="OrchardCore.Users" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="OrchardCore.Themes" Version="$(OrchardCoreVersion)" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.1" />
     
     <ProjectReference Include="..\..\Lib\Shezzy.Web.Manifest\Shezzy.Web.Manifest.csproj" />
   </ItemGroup>
