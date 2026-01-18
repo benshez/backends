@@ -1,0 +1,11 @@
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\Shezzy.Web.Extensions.csproj.AssemblyReference.cache
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\Shezzy.Web.Extensions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\Shezzy.Web.Extensions.AssemblyInfoInputs.cache
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\Shezzy.Web.Extensions.AssemblyInfo.cs
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\Shezzy.Web.Extensions.csproj.CoreCompileInputs.cache
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\Shezzy.Web.Extensions.sourcelink.json
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\bin\Debug\net10.0\Shezzy.Web.Extensions.deps.json
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\bin\Debug\net10.0\Shezzy.Web.Extensions.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\Shezzy.Web.Extensions.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\refint\Shezzy.Web.Extensions.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Extensions\obj\Debug\net10.0\ref\Shezzy.Web.Extensions.dll

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zR/+eikMdpU=",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bensh\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

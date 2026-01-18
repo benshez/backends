@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ Culture.Name }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ "PageTitle" | shape_new | shape_stringify }}</title> 
+    {% resources type: "Meta" %}
+    {% link type:"image/x-icon", rel:"shortcut icon", href:"~/FormBuilderTheme/favicon.ico" %}
+    <!-- Font Awesome icons (free version)-->
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    {% style name:"bootstrap-css", version:"1" %}
+
+    {% script name:"jQuery", at:"Foot", version:"3.6.0" %}
+    {% script name:"popper", at:"Foot", version:"1.16.1" %}
+    {% script name:"bootstrap-js", at:"Foot", version:"4.6.0" %}
+    {% script name:"details-polyfill", at:"Foot", version:"2.4.0" %}
+
+    {% resources type: "HeadLink" %}
+    {% resources type: "Stylesheet" %}
+    {% resources type: "HeadScript" %}
+    {% render_section "HeadMeta", required:false %}
+  </head>
+<body dir="{{ Culture.Dir }}">
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="{{ '~/' | href }}">{{ Site.SiteName }}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="visually-hidden">{{ "Toggle navigation" | t }}</span>
+                {{ "Menu" | t }} <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            {% shape "menu", alias: "alias:main-menu", cache_id: "main-menu", cache_fixed_duration: "00:05:00", cache_tag: "alias:main-menu", cache_context: "user.roles" %}
+        </div>
+    </nav>
+    {% render_section "Header", required: false %}
+    <div class="container px-4 px-lg-5 mb-4">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                {% assign users = "Authenticated"  | users_by_role %}
+                {% for user in users%}
+                  {{user.Email}}
+                {% endfor %}
+
+				        {% render_section "Messages", required: false %}
+                {% render_body %}
+            </div>
+        </div>
+        <div id="form-builder-container"></div>
+        <div id="form-builder-parent-container"></div>
+    </div>
+    <footer class="border-top">
+    <script type="text/javascript">
+      setTimeout(
+        function () {
+          (
+            function (w, d, link, script, p) {
+              p = d.getElementById("form-builder-parent-container");
+              script = d.createElement("script");
+              var js = "http://localhost:4173/form-builder.js";
+              var options = { "userId": "da", "container": "form-builder-container", "userInfo": { "id": "da", "username": "ab", "email": "", "firstName": "", "lastName": "", "gender": "", "image": "", "token": "werwerw" } }
+              script.id = "form-builder-container-script"
+              script.type = "text/javascript"
+              script.src = js;
+              script.setAttribute("data-options", JSON.stringify(options)); 
+              p.appendChild(script);
+            })(window, document);
+        }, 2000); 
+    </script>
+        {% render_section "Footer", required: false %}
+    </footer>
+    {% resources type: "FootScript" %}
+</body>
+</html>

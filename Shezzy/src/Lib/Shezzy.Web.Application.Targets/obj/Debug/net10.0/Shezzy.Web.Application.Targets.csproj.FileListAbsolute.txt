@@ -1,0 +1,17 @@
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\bin\Debug\net10.0\FormBuilderTheme.staticwebassets.runtime.json
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\bin\Debug\net10.0\FormBuilderTheme.staticwebassets.endpoints.json
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\bin\Debug\net10.0\Shezzy.Web.Application.Targets.deps.json
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\bin\Debug\net10.0\Shezzy.Web.Application.Targets.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\bin\Debug\net10.0\FormBuilderTheme.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\bin\Debug\net10.0\Shezzy.Web.Manifest.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\bin\Debug\net10.0\FormBuilderTheme.pdb
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.Web.Application.Targets.csproj.AssemblyReference.cache
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.Web.Application.Targets.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.Web.Application.Targets.AssemblyInfoInputs.cache
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.Web.Application.Targets.AssemblyInfo.cs
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.Web.Application.Targets.csproj.CoreCompileInputs.cache
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.Web.Application.Targets.sourcelink.json
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.W.85F1DD55.Up2Date
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\Shezzy.Web.Application.Targets.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\refint\Shezzy.Web.Application.Targets.dll
+C:\Projects\backends\Shezzy\src\Lib\Shezzy.Web.Application.Targets\obj\Debug\net10.0\ref\Shezzy.Web.Application.Targets.dll

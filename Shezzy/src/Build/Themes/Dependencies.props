@@ -1,0 +1,9 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\OrchardCore\Dependencies.props" />
+  <PropertyGroup>
+    <ShezzyWebVersion>1.0.0</ShezzyWebVersion>
+    <ShezzyWebAppTargetVersion>1.0.0</ShezzyWebAppTargetVersion>
+    <FormBuilderVersion>1.0.0</FormBuilderVersion>
+    <ShezzyWebManifestVersion>1.0.</ShezzyWebManifestVersion>
+  </PropertyGroup>
+</Project>

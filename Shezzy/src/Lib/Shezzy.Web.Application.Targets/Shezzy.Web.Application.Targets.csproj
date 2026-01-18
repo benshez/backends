@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\Build\Lib\Directory.Build.props" />
+  <Import Project="..\..\Build\Lib\Directory.Build.targets" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Themes\FormBuilderTheme\FormBuilderTheme.csproj" />
+    <ProjectReference Include="..\Shezzy.Web.Manifest\Shezzy.Web.Manifest.csproj" />
+  </ItemGroup>
+
+</Project>

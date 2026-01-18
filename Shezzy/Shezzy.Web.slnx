@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/Build/">
+    <File Path="nuget.config" />
+  </Folder>
+  <Folder Name="/Build/Lib/">
+    <File Path="src/Build/Lib/Directory.Build.props" />
+    <File Path="src/Build/Lib/Directory.Build.targets" />
+  </Folder>
+  <Folder Name="/Build/Modules/">
+    <File Path="src/Build/Modules/Directory.Build.props" />
+    <File Path="src/Build/Modules/Directory.Build.targets" />
+  </Folder>
+  <Folder Name="/Build/OrchardCore/">
+    <File Path="src/Build/OrchardCore/Dependencies.props" />
+    <File Path="src/Build/OrchardCore/Shezzy.OrchardCore.Commons.props" />
+    <File Path="src/Build/OrchardCore/Shezzy.OrchardCore.Commons.targets" />
+  </Folder>
+  <Folder Name="/Build/Themes/">
+    <File Path="src/Build/Themes/Dependencies.props" />
+    <File Path="src/Build/Themes/Directory.Build.props" />
+    <File Path="src/Build/Themes/Directory.Build.targets" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Shezzy.Web.Cms/Shezzy.Web.Cms.csproj" />
+  </Folder>
+  <Folder Name="/src/Lib/">
+    <Project Path="src/Lib/Shezzy.Web.Application.Targets/Shezzy.Web.Application.Targets.csproj" Id="cccfc89a-7965-4611-8bbc-e85d57dc85f7" />
+    <Project Path="src/Lib/Shezzy.Web.Extensions/Shezzy.Web.Extensions.csproj" />
+    <Project Path="src/Lib/Shezzy.Web.Manifest/Shezzy.Web.Manifest.csproj" Id="322785c7-ffbc-44eb-8c4e-155edea40ad1" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Themes/">
+    <Project Path="src/Themes/FormBuilderTheme/FormBuilderTheme.csproj" />
+  </Folder>
+</Solution>

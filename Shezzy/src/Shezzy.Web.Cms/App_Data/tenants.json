@@ -1,0 +1,14 @@
+{
+  "Default": {
+    "VersionId": "47q91hctqjqmj2hynm52hnkj4w",
+    "TenantId": "4n4awpw65zm824wj801rzvzz5b",
+    "State": "Running"
+  },
+  "Some": {
+    "VersionId": "44bbabgr8paqfz1nbew76q1fdb",
+    "TenantId": "4vnd5zfmm37nryjkbjbcqr9v4z",
+    "RequestUrlPrefix": "some",
+    "State": "Running",
+    "RequestUrlHost": "some:28923"
+  }
+}

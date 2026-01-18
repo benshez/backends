@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="..\OrchardCore\Shezzy.OrchardCore.Commons.targets" />
+  
+ <ItemGroup>
+   <PackageReference Include="OrchardCore.Module.Targets" Version="$(OrchardCoreVersion)" />
+   <ProjectReference Include="..\..\Lib\Shezzy.Web.Manifest\Shezzy.Web.Manifest.csproj" />
+ </ItemGroup>
+  <PropertyGroup>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+</Project>

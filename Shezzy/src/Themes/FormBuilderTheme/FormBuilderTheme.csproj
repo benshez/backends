@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <Import Project="..\..\Build\Themes\Dependencies.props" />
+  <Import Project="..\..\Build\Themes\Directory.Build.targets" />
+  
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Remove="wwwroot\js\bootstrap.js" />
+    <EmbeddedResource Remove="wwwroot\js\bootstrap.min.js" />
+    <EmbeddedResource Remove="wwwroot\js\details-element-polyfill.js" />
+    <EmbeddedResource Remove="wwwroot\js\details-element-polyfill.min.js" />
+    <EmbeddedResource Remove="wwwroot\js\jquery.js" />
+    <EmbeddedResource Remove="wwwroot\js\jquery.min.js" />
+    <EmbeddedResource Remove="wwwroot\js\popper.js" />
+    <EmbeddedResource Remove="wwwroot\js\popper.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\Shezzy.Web.Manifest\Shezzy.Web.Manifest.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\form-builder-theme-bootstrap.css" />
+    <None Include="wwwroot\css\form-builder-theme-bootstrap.min.css" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\details-element-polyfill.js" />
+    <None Include="wwwroot\js\details-element-polyfill.min.js" />
+    <None Include="wwwroot\js\jquery.js" />
+    <None Include="wwwroot\js\jquery.min.js" />
+    <None Include="wwwroot\js\popper.js" />
+    <None Include="wwwroot\js\popper.min.js" />
+  </ItemGroup>
+
+</Project>

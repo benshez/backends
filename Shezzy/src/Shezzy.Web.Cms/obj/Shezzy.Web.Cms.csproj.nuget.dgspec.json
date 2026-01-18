@@ -1,0 +1,371 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Projects\\backends\\Shezzy\\src\\Shezzy.Web.Cms\\Shezzy.Web.Cms.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Application.Targets\\Shezzy.Web.Application.Targets.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Application.Targets\\Shezzy.Web.Application.Targets.csproj",
+        "projectName": "Shezzy.Web.Application.Targets",
+        "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Application.Targets\\Shezzy.Web.Application.Targets.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Application.Targets\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Projects\\backends\\Shezzy\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net10.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {}
+        },
+        "frameworks": {
+          "net10.0": {
+            "targetAlias": "net10.0",
+            "projectReferences": {
+              "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj": {
+                "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj"
+              },
+              "C:\\Projects\\backends\\Shezzy\\src\\Themes\\FormBuilderTheme\\FormBuilderTheme.csproj": {
+                "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Themes\\FormBuilderTheme\\FormBuilderTheme.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net10.0": {
+          "targetAlias": "net10.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj",
+        "projectName": "Shezzy.Web.Manifest",
+        "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Projects\\backends\\Shezzy\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net10.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {}
+        },
+        "frameworks": {
+          "net10.0": {
+            "targetAlias": "net10.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net10.0": {
+          "targetAlias": "net10.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\backends\\Shezzy\\src\\Shezzy.Web.Cms\\Shezzy.Web.Cms.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\backends\\Shezzy\\src\\Shezzy.Web.Cms\\Shezzy.Web.Cms.csproj",
+        "projectName": "Shezzy.Web.Cms",
+        "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Shezzy.Web.Cms\\Shezzy.Web.Cms.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\backends\\Shezzy\\src\\Shezzy.Web.Cms\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Projects\\backends\\Shezzy\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net10.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {}
+        },
+        "frameworks": {
+          "net10.0": {
+            "targetAlias": "net10.0",
+            "projectReferences": {
+              "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Application.Targets\\Shezzy.Web.Application.Targets.csproj": {
+                "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Application.Targets\\Shezzy.Web.Application.Targets.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net10.0": {
+          "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.Extensions.Http.Resilience": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "OpenIddict.Validation.SystemNetHttp": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            },
+            "OrchardCore.Application.Cms.Core.Targets": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "SafeMode": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "TheTheme": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\backends\\Shezzy\\src\\Themes\\FormBuilderTheme\\FormBuilderTheme.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\backends\\Shezzy\\src\\Themes\\FormBuilderTheme\\FormBuilderTheme.csproj",
+        "projectName": "FormBuilderTheme",
+        "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Themes\\FormBuilderTheme\\FormBuilderTheme.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\backends\\Shezzy\\src\\Themes\\FormBuilderTheme\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Projects\\backends\\Shezzy\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net10.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {}
+        },
+        "frameworks": {
+          "net10.0": {
+            "targetAlias": "net10.0",
+            "projectReferences": {
+              "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj": {
+                "projectPath": "C:\\Projects\\backends\\Shezzy\\src\\Lib\\Shezzy.Web.Manifest\\Shezzy.Web.Manifest.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net10.0": {
+          "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            },
+            "OrchardCore.DisplayManagement": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "OrchardCore.Menu": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "OrchardCore.Module.Targets": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "OrchardCore.ResourceManagement": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "OrchardCore.Theme.Targets": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "OrchardCore.Themes": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "OrchardCore.Users": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

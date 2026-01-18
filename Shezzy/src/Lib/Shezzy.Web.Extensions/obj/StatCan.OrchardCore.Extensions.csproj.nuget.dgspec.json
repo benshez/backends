@@ -1,0 +1,437 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Extensions\\StatCan.OrchardCore.Extensions.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Extensions\\StatCan.OrchardCore.Extensions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Extensions\\StatCan.OrchardCore.Extensions.csproj",
+        "projectName": "StatCan.OrchardCore.Extensions",
+        "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Extensions\\StatCan.OrchardCore.Extensions.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Extensions\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {},
+          "https://nuget.cloudsmith.io/statcan-digitalinnovation/statcan-orchardcore/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentFields\\StatCan.OrchardCore.ContentFields.csproj": {
+                "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentFields\\StatCan.OrchardCore.ContentFields.csproj"
+              },
+              "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentPermissions\\StatCan.OrchardCore.ContentPermissions.csproj": {
+                "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentPermissions\\StatCan.OrchardCore.ContentPermissions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "OrchardCore.ContentFields": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.ContentManagement.Abstractions": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.Flows": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.Html": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.Markdown": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.Title": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\StatCan.OrchardCore.Manifest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\StatCan.OrchardCore.Manifest.csproj",
+        "projectName": "StatCan.OrchardCore.Manifest",
+        "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\StatCan.OrchardCore.Manifest.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {},
+          "https://nuget.cloudsmith.io/statcan-digitalinnovation/statcan-orchardcore/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentFields\\StatCan.OrchardCore.ContentFields.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentFields\\StatCan.OrchardCore.ContentFields.csproj",
+        "projectName": "StatCan.OrchardCore.ContentFields",
+        "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentFields\\StatCan.OrchardCore.ContentFields.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentFields\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {},
+          "https://nuget.cloudsmith.io/statcan-digitalinnovation/statcan-orchardcore/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\StatCan.OrchardCore.Manifest.csproj": {
+                "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\StatCan.OrchardCore.Manifest.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "OrchardCore.ContentFields": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.ContentManagement.Abstractions": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.DisplayManagement": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.Module.Targets": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.ResourceManagement": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentPermissions\\StatCan.OrchardCore.ContentPermissions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentPermissions\\StatCan.OrchardCore.ContentPermissions.csproj",
+        "projectName": "StatCan.OrchardCore.ContentPermissions",
+        "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentPermissions\\StatCan.OrchardCore.ContentPermissions.csproj",
+        "packagesPath": "C:\\Users\\bensh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Modules\\StatCan.OrchardCore.ContentPermissions\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\NuGet.Config",
+          "C:\\Users\\bensh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {},
+          "https://nuget.cloudsmith.io/statcan-digitalinnovation/statcan-orchardcore/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\StatCan.OrchardCore.Manifest.csproj": {
+                "projectPath": "C:\\Users\\bensh\\Downloads\\StatCan.OrchardCore-master\\StatCan.OrchardCore-master\\src\\Lib\\StatCan.OrchardCore.Manifest\\StatCan.OrchardCore.Manifest.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "OrchardCore.ContentManagement": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.ContentManagement.Display": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.ContentTypes": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.DisplayManagement": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.Module.Targets": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "OrchardCore.ResourceManagement": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

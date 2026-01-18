@@ -1,0 +1,9 @@
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.csproj.AssemblyReference.cache
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.AssemblyInfoInputs.cache
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.AssemblyInfo.cs
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.csproj.CoreCompileInputs.cache
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.RazorAssemblyInfo.cache
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.RazorAssemblyInfo.cs
+C:\Projects\backends\Shezzy\src\Modules\Shezzy.Web.ContentFields\obj\Debug\net10.0\Shezzy.Web.ContentFields.sourcelink.json
