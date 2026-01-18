@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+378b9563f68c868a6155a045449ea68e9acbba30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+840cf8e93c5d4b83315249a8316fec3f583691bb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Shezzy.Web.Application.Targets")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://us.to")]

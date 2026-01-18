@@ -358,7 +358,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FormBuilderTheme")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2db61fb6e18c8166cf0249a0ce93ab64fcacab8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+840cf8e93c5d4b83315249a8316fec3f583691bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("FormBuilderTheme")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FormBuilderTheme")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
